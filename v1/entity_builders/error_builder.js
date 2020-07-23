@@ -1,10 +1,11 @@
+
 let errorBuilder = function (err) {
     try {
         function _build() {
             return Promise.all([_getErrMessages(), _getHttpCode()]).then(vaules => {
                 const err_message = vaules[0]
                 const err_code = vaules[1]
-                const err_type = err.name.replace('Sequelize', '')
+                const err_type = err.name.replace('Mongo', 'DB')
                 let error_obj = {
                     code: err_code,
                     body: {
@@ -23,11 +24,11 @@ let errorBuilder = function (err) {
 
         var _getHttpCode = function () {
             return new Promise(function (resolve, reject) {
-                if (err.isJoi) {
+                if (err.isJoi || err.name == "SyntaxError") {
                     resolve(400)
-                } else if (err.name === 'SequelizeValidationError') {
+                } else if (err.name === 'MongoError') {
                     resolve(422)
-                } else if (['ReferenceError', 'SequelizeForeignKeyConstraintError', 'TypeError', 'SyntaxError', 'RangeError', 'SequelizeDatabaseError'].indexOf(err.name) != -1) {
+                } else if (['ReferenceError', 'SequelizeForeignKeyConstraintError', 'TypeError', 'RangeError', 'SequelizeDatabaseError'].indexOf(err.name) != -1) {
                     resolve(500)
                 } else {
                     resolve(err.code || 500)
@@ -73,4 +74,4 @@ let errorBuilder = function (err) {
     }
 }
 
-module.exports = errorBuilder
+module.exports = errorBuilder;
