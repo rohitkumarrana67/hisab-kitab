@@ -1,6 +1,6 @@
 const app = require("../app");
 const db = require("../db/models");
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3060;
 
 db.dbConnect();
 app.listen(PORT, () => {
