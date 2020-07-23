@@ -3,6 +3,7 @@ const { createValidator } = require("../validators/user_validators");
 module.exports = {
 
     create: (req, res) => {
+        res.send("hello");
         createValidator(req.body).then(data => {
 
         }).then(data => {

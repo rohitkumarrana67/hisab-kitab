@@ -1,13 +1,14 @@
 const express = require("express");
 require("dotenv").config();
+const userRouter = require("./routes/user_route");
 
 const app = express();
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-    res.send("hello");
-})
+
+
+app.use("/users/", userRouter);
 
 
 module.exports = app;
