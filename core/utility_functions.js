@@ -22,3 +22,10 @@ exports.conflictError = function (message) {
     return error
 }
 
+exports.unauthorizedError = function (message) {
+    error = new Error()
+    error.name = 'Unauthorized Action'
+    error.message = message
+    error.code = 403
+    return error
+}

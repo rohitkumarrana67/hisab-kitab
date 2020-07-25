@@ -10,3 +10,8 @@ UserService.prototype.create = async function (req_data) {
     const dispatcher_data = await this.dispatcher.create(req_data);
     return this.builder.create(dispatcher_data);
 }
+
+UserService.prototype.login = async function (req_data) {
+    const dispatcher_data = await this.dispatcher.login(req_data);
+    return this.builder.login(dispatcher_data);
+}
