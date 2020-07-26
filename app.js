@@ -9,6 +9,6 @@ app.use(express.json());
 
 app.use("/users", userRouter);
 app.use(customerRouter);
-
+app.use(express.static(__dirname + "/public"));
 
 module.exports = app;

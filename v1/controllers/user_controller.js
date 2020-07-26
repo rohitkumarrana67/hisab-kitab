@@ -1,6 +1,7 @@
 const { createValidator, loginValidator } = require("../validators/user_validators");
 const errorBuilder = require("../entity_builders/error_builder");
 const Service = require("../services/user_service");
+const Builder = require("../entity_builders/user_builder");
 
 module.exports = {
 
@@ -28,5 +29,10 @@ module.exports = {
                 res.status(error.code).send(error.body)
             })
         })
+    },
+    getProfile: (req, res) => {
+        const UserBuilder = new Builder();
+        const res_data = UserBuilder.userProfile(req.user);
+        res.status(201).send(res_data);
     }
 }

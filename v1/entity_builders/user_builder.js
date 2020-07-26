@@ -15,3 +15,9 @@ UserEntityBuilder.prototype.login = function (req_data) {
     return { user, token: req_data.token };
 }
 
+
+UserEntityBuilder.prototype.userProfile = function (req_data) {
+    const { name, email } = req_data;
+    return { name, email };
+
+}
