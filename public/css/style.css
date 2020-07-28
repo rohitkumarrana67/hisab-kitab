@@ -1,8 +1,13 @@
 .signup-img{
-    height: 80vh;
+    height: 85vh;
     width: 100%;
 }
 
 .form-container{
     width: 80%;
+}
+
+footer{
+    padding: 10px;
+    background-color: black;
 }
