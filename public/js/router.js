@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'views/login_View', 'views/signup_view', 'views/profile_view', 'views/Customers_view'], function ($, _, Backbone, LoginView, SignupView, ProfileView, CustomersView) {
+define(['jquery', 'underscore', 'backbone', 'views/login_View', 'views/signup_view', 'views/profile_view', 'views/customers_view'], function ($, _, Backbone, LoginView, SignupView, ProfileView, CustomersView) {
 
 
     var AppRouter = Backbone.Router.extend({
