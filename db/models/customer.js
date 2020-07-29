@@ -4,10 +4,10 @@ const validator = require('validator')
 
 const CustomerSchema = mongoose.Schema({
 
-    owner_id: { type: String },
+    user_id: { type: String },
     customer_id: { type: String, required: true },
     customer_name: { type: String, required: true },
-    mobile_number: [],
+    mobile_number: { type: Number },
     address: { type: String },
     email: {
         type: String, unique: true, trim: true, lowercase: true,

@@ -11,3 +11,12 @@ footer{
     padding: 10px;
     background-color: black;
 }
+
+.main-box{
+    min-height: 85vh;
+}
+
+.create-customer{
+    margin:0 auto;
+    box-shadow: 5px 5px 10px black;
+}

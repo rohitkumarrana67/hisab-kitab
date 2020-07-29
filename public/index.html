@@ -119,7 +119,76 @@
  </script>
 
 
+    <!-- main view template -->
 
+    <script type="text/template" id="main-template">
+       <div class="container">
+           <div class="row main-box">
+               <div class="col-8 p-3">
+                   
+
+                   <div class="card">
+                       <div class="card-body">
+                           <h1 class="card-title text-success" >CUSTOMERS</h1>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#create-customer">Add Customer</button>
+                       
+                          <div class="collapse mt-3" id="create-customer">
+                            <div class="card w-75 card-body create-customer text-align-right">
+                              <form action="">
+                                  <div class="form-group">
+                                    <input id="name" type="text" class="form-control" placeholder="name">
+                                  </div>
+                                  <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input id="mob_num" type="text" class="form-control" placeholder="mobile Number">
+                                       </div>
+                                       <div class="form-group col-md-6">
+                                        <input id="email" type="text" class="form-control" placeholder="email">
+                                       </div>
+                                  </div>
+                                   
+                                    <div class="form-group">
+                                        <textarea id="address" class="form-control" placeholder="Address"></textarea>
+                                    </div>
+                                    <div class="float-right">
+                                        <button class="btn btn-danger ">cancel</button>
+                                        <button id="create" class="btn btn-secondary " >create</button>
+                                      </div>
+                              </form>
+                              
+                            </div>
+                          </div>
+                           <div class="card card-body mt-5"> 
+                               <table class="table table-border table-striped">
+                                   <thead class="thead-dark">
+                                       <tr>
+                                           <th>Name</th>
+                                           <th>Mobile No.</th>
+                                           <th>Email</th>
+                                           <th>Summary</th>
+                                       </tr>
+                                   </thead>
+                                   <tbody class="customers-list">
+                                   </tbody>
+                               </table>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+                
+               <div class="col-4">MONTHLY EXPENSES</div>
+           </div>
+       </div>
+    </script>
+
+
+    <!-- customer -->
+    <script type="text/template" id="customer-template">
+            <td><%= customer_name %></td>
+            <td><%= mobile_number %></td>
+            <td><%= email %></td>
+            <td><button class="btn btn-warning">summary</button></td>  
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

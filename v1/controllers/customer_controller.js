@@ -6,7 +6,7 @@ module.exports = {
 
     createCustomer: (req, res) => {
         customerCreateValidator(req.body).then(data => {
-            const CustomerService = new Service();
+            const CustomerService = new Service(data, req.user);
             return CustomerService.create(data);
         }).then(data => {
             res.status(201).send(data);
@@ -18,10 +18,18 @@ module.exports = {
         })
 
     },
-    getCustomerById: (req, res) => {
-
-    },
     getCustomers: (req, res) => {
+        const CustomerService = new Service();
+        CustomerService.getCustomers(req.user).then(data => {
+            res.status(201).send(data);
+        }).catch(error => {
+            errorBuilder(error).then((error) => {
+                res.status(error.code).send(error.body)
+
+            })
+        });
+    },
+    getCustomerById: (req, res) => {
 
     },
     updateCustomerById: (req, res) => {

@@ -26,7 +26,7 @@ define(['jquery', 'underscore', 'backbone', 'models/user', 'collections/users'],
                     localStorage.setItem('khata-token', response.toJSON().token);
                     var token = localStorage.getItem('khata-token');
                     console.log(response.toJSON());
-                    window.location = "#signup";
+                    window.location = "#customers";
 
                 },
                 error: function (err, response) {
