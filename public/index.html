@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/2f55da0773.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
 </head>
 
 <body>
@@ -56,17 +59,161 @@
 
 
     <div id="content">
-
         <div class="jumbotron">
             <h1 class="display-1">HISAB-KITAB</h1>
             <p class="lead">Digital way of Manage your Business & Personal ledgers </p>
         </div>
-
     </div>
 
+    <!--footer-->
+
+
+
     <footer>
-        <h1>created by rohit kumar Rana</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-4 offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-7 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+                        121, Clear Water Bay Road<br>
+                        Clear Water Bay, Kowloon<br>
+                        HONG KONG<br>
+                        <i class="fa fa-phone fa-lg"></i> : +852 1234 5678<br>
+                        <i class="fa fa-fax fa-lg"></i> : +852 8765 4321<br>
+                        <i class="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net">www.hisabkitab.com</a>
+                    </address>
+                </div>
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center">
+                        <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i
+                                class="fa fa-google-plus fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i
+                                class="fa fa-facebook fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i
+                                class="fa fa-linkedin fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i
+                                class="fa fa-twitter fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i
+                                class="fa fa-youtube fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-google " href="mailto:"><i
+                                class="fa fa-envelope-o fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <p>© Copyright 2018 hisab-kitab corporation</p>
+                </div>
+            </div>
+        </div>
     </footer>
+
+
+
+
+
+    <!--profile-->
+
+    <script type="text/template" id="profile-template">
+        <div class=" container mt-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class=" nav-link text-white" data-toggle="collapse" href="#info" role="button" aria-expanded="false" aria-controls="info">
+                        Personal info
+                      </a>
+                </li>
+                <li class="nav-item ml-5">
+                    <a class="nav-link text-white" data-toggle="collapse" href="#address" role="button" aria-expanded="false" aria-controls="address">
+                        Address
+                      </a>
+                </li>
+                <li class="nav-item ml-5">
+                    <a class="nav-link text-white" data-toggle="collapse" href="#changepass" role="button" aria-expanded="false" aria-controls="changepass">
+                        Change Password
+                      </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div class="collapse container" id="info">
+            <div class="row ">
+                <div class="float-left">
+                    <div class="detail">
+
+                    </div>
+               <ul>
+               <li>Name : <span><%= name %></span></li>
+               <li>Email : <span><%= email %></span></li>
+               <li>Mobile Number : <span>1234567890</span></li>
+               </ul>
+                </div>
+              <div class="float-right ml-auto">
+                <a class=" nav-link" data-toggle="collapse" href="#editprofile" role="button" aria-expanded="false" aria-controls="editprofile">
+                    Edit Profile
+                  </a>
+              </div>
+          </div>
+        </div>
+          <div class="collapse container " id="changepass">
+              <p>Chnage Password</p>
+            <form class="w-50">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="old password">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="new password">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="confirm password">
+                </div>
+                <button type="button" class="btn btn-success w-50 text-center">Save</button>
+              </form>
+          </div>
+          <div class="collapse container w-50" id="editprofile">
+            <p><strong>Personal Info </strong></p>
+            <form>
+                <div class="form-group">
+                  <label for="InputName">Name</label>
+                  <input type="text" class="form-control" id="InputName" placeholder="Name">
+                </div>
+                <div class="form-group">
+                  <label for="InputEmail">Email</label>
+                  <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+                </div>
+                <div class="form-group ">
+                    <label for="InputMob">Mobile NUmber</label>
+                    <input type="text" class="form-control" id="InputMob" placeholder="Mobile Number"> 
+                </div>
+                <button type="button" class="btn btn-success w-100">Update</button>
+              </form>
+        </div>
+        <div class="collapse container" id="address">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Address</b></h5>
+               
+                  <p class="card-text">
+                    <h1>John Doe </h1>
+                    <p class="title">CEO & Founder, Example</p>
+                    <p>Harvard University</p>
+                  </p>
+                </div>
+              </div>
+        </div>
+        </div>
+</script>
+
 
     <script type="text/template" id="signup-template">
            <div class="container-fluid signup-container ">

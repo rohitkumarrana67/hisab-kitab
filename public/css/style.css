@@ -21,6 +21,6 @@ footer{
     box-shadow: 5px 5px 10px black;
 }
 
-.after-auth,.before-auth{
+.after-auth{
     display: none;
 }

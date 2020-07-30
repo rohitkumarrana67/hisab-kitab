@@ -19,11 +19,21 @@ define(['jquery', 'underscore', 'backbone', 'models/user', 'views/login_View', '
             });
         },
         profileView: function () {
+            if (!localStorage.getItem('khata-token')) {
+                $('.before-auth').hide();
+                $('.after-auth').show();
+                window.location = '#';
+            }
             var profile_view = new ProfileView({
                 el: "#content"
             });
         },
         customersView: function () {
+            if (!localStorage.getItem('khata-token')) {
+                $('.before-auth').hide();
+                $('.after-auth').show();
+                window.location = '#';
+            }
             var customers_view = new CustomersView({
                 el: "#content"
             });

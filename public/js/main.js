@@ -16,15 +16,6 @@ require.config({
 define(['app', 'models/user'], function (App, UserModel) {
     App.initialize();
 
-    if (localStorage.getItem('khata-token')) {
-        $('.after-auth').show();
-        window.location = '#customers';
-    }
-    if (!localStorage.getItem('khata-token')) {
-        $('.before-auth').show();
-        window.location = '#';
-    }
-
     $('#logout').click(function () {
         const user = new UserModel();
         user.save(null, {
