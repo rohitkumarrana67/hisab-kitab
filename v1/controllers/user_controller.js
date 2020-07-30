@@ -30,6 +30,19 @@ module.exports = {
             })
         })
     },
+    logout: async (req, res) => {
+        try {
+            req.user.tokens = req.user.tokens.filter((token) => {
+                return token.token !== req.token;
+            });
+
+            await req.user.save();
+            res.send();
+        } catch (e) {
+            res.status(500).send(e);
+        }
+
+    },
     getProfile: (req, res) => {
         const UserBuilder = new Builder();
         const res_data = UserBuilder.userProfile(req.user);

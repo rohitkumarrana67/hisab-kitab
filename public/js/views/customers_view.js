@@ -1,11 +1,11 @@
-define(['jquery', 'underscore', 'backbone', 'models/customer', 'views/customer_view', 'collections/customer'], function ($, _, Backbone, CustomerModel, CustomerView, CustomerCollection) {
+define(['jquery', 'underscore', 'backbone', 'models/customer', 'views/customer_view', 'collections/customer', 'models/user'], function ($, _, Backbone, CustomerModel, CustomerView, CustomerCollection, UserModel) {
 
     var CustomersView = Backbone.View.extend({
         model: CustomerModel,
         collection: CustomerCollection,
         template: _.template($('#main-template').html()),
         events: {
-            'click #create': 'createCustomer'
+            'click #create': 'createCustomer',
         },
         createCustomer: function (e) {
             e.preventDefault()

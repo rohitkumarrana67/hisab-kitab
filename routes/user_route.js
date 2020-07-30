@@ -5,6 +5,7 @@ const Auth = require("../core/authenticator");
 
 router.post("/", userController.createNewUser);
 router.post("/login", userController.login);
+router.post('/logout', Auth, userController.logout);
 router.get("/profile", Auth, userController.getProfile)
 // router.patch("/",userController.updateUser)
 // router.get("/:userid",userController.readUser)

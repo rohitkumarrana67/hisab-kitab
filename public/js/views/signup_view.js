@@ -26,12 +26,13 @@ define(['jquery', 'underscore', 'backbone', 'models/user', 'collections/users'],
             // this.collection.url();
             console.log(user);
             user.save(null, {
+                url: "http://localhost:3060/users",
                 success: function (response) {
                     self.collection.add(user);
                     localStorage.setItem('khata-token', response.toJSON().token);
-                    var token = localStorage.getItem('khata-token');
-                    console.log(response.toJSON());
-
+                    $('.before-auth').hide();
+                    $('.after-auth').show();
+                    window.location = "#customers";
                 },
                 error: function (err, response) {
                     console.log(response)

@@ -2,7 +2,6 @@ define(['jquery', 'underscore', 'backbone', 'models/user', 'collections/users'],
 
     var LoginView = Backbone.View.extend({
         model: UserModel,
-        collection: UserCollection,
         template: _.template($('#login-template').html()),
         initialize: function () {
             this.render();
@@ -24,8 +23,8 @@ define(['jquery', 'underscore', 'backbone', 'models/user', 'collections/users'],
                 url: "http://localhost:3060/users/login",
                 success: function (response) {
                     localStorage.setItem('khata-token', response.toJSON().token);
-                    var token = localStorage.getItem('khata-token');
-                    console.log(response.toJSON());
+                    $('.before-auth').hide();
+                    $('.after-auth').show();
                     window.location = "#customers";
 
                 },
