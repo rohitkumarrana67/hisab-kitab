@@ -37,7 +37,7 @@ module.exports = {
             });
 
             await req.user.save();
-            res.send();
+            res.status(200).send({ success: "successfully logout" });
         } catch (e) {
             res.status(500).send(e);
         }

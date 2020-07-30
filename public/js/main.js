@@ -13,7 +13,7 @@ require.config({
     }
 })
 
-define(['app'], function (App) {
+define(['app', 'models/user'], function (App, UserModel) {
     App.initialize();
 
     if (localStorage.getItem('khata-token')) {
@@ -26,7 +26,19 @@ define(['app'], function (App) {
     }
 
     $('#logout').click(function () {
-        localStorage.removeItem('khata-token');
-        window.location.href = "http://localhost:3060/";
-    })
+        const user = new UserModel();
+        user.save(null, {
+            url: "http://localhost:3060/users/logout",
+            headers: { 'auth-token': localStorage.getItem('khata-token') },
+            success: function (response) {
+                console.log("ok");
+                localStorage.removeItem('khata-token');
+                window.location.href = "http://localhost:3060/";
+            },
+            error: function (error, response) {
+                console.log(response)
+            }
+        })
+
+    });
 })
