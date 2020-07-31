@@ -1,5 +1,4 @@
-const Joi = require("@hapi/joi");
-const { number } = require("@hapi/joi");
+const Joi = require("joi");
 
 const customerCreateValidator = async (req_data) => {
 
