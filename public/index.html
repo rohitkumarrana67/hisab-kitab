@@ -342,10 +342,10 @@
             <td>
 
 
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#giveModalCenter">Give</button><button  type="button" class="btn btn-success" data-toggle="modal" data-target="#takeModalCenter">Take</button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#get<%=customer_id%>">Give</button><button  type="button" class="btn btn-success" data-toggle="modal" data-target="#take<%=customer_id%>">Take</button>
                 
                  <!--give-->
-                <div class="modal fade" id="giveModalCenter" tabindex="-1" role="dialog" aria-labelledby="giveModalCenterTitle" aria-hidden="true">
+                <div class="modal fade" id="get<%=customer_id%>" tabindex="-1" role="dialog" aria-labelledby="giveModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header bg-danger">
@@ -372,7 +372,7 @@
 
                   <!--take-->
 
-                  <div class="modal fade" id="takeModalCenter" tabindex="-1" role="dialog" aria-labelledby="takeModalCenterTitle" aria-hidden="true">
+                  <div class="modal fade" id="take<%=customer_id%>" tabindex="-1" role="dialog" aria-labelledby="takeModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header bg-success">
@@ -401,8 +401,6 @@
             </td>
             <td><button class="btn btn-warning">summary</button></td>  
             
-              
-              <!-- Modal -->
               
     </script>
 
