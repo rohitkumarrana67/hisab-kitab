@@ -5,6 +5,12 @@ define(['jquery', 'underscore', 'backbone', 'models/customer', 'collections/cust
         model: CustomerModel,
         tagName: "tr",
         template: _.template($('#customer-template').html()),
+        events: {
+            'click #saveChange': "saveChange"
+        },
+        saveChange: function (params) {
+            console.log("hello");
+        },
         initialize: function () {
             this.render();
         },

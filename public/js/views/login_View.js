@@ -23,8 +23,6 @@ define(['jquery', 'underscore', 'backbone', 'models/user', 'collections/users'],
                 url: "http://localhost:3060/users/login",
                 success: function (response) {
                     localStorage.setItem('khata-token', response.toJSON().token);
-                    $('.before-auth').hide();
-                    $('.after-auth').show();
                     window.location = "#customers";
 
                 },
