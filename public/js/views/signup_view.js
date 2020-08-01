@@ -30,8 +30,6 @@ define(['jquery', 'underscore', 'backbone', 'models/user', 'collections/users'],
                 success: function (response) {
                     self.collection.add(user);
                     localStorage.setItem('khata-token', response.toJSON().token);
-                    $('.before-auth').hide();
-                    $('.after-auth').show();
                     window.location = "#customers";
                 },
                 error: function (err, response) {

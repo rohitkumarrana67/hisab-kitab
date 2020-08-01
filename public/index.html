@@ -123,95 +123,95 @@
 
     <!--profile-->
 
-    <script type="text/template" id="profile-template">
+    <script type="text/template" id="profile-template" src="profile_template.html">
         <div class=" container mt-3">
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class=" nav-link text-white" data-toggle="collapse" href="#info" role="button" aria-expanded="false" aria-controls="info">
-                        Personal info
-                      </a>
-                </li>
-                <li class="nav-item ml-5">
-                    <a class="nav-link text-white" data-toggle="collapse" href="#address" role="button" aria-expanded="false" aria-controls="address">
-                        Address
-                      </a>
-                </li>
-                <li class="nav-item ml-5">
-                    <a class="nav-link text-white" data-toggle="collapse" href="#changepass" role="button" aria-expanded="false" aria-controls="changepass">
-                        Change Password
-                      </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-          <div class="collapse container" id="info">
-            <div class="row ">
-                <div class="float-left">
-                    <div class="detail">
-
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class=" nav-link text-white" data-toggle="collapse" href="#info" role="button" aria-expanded="false" aria-controls="info">
+                                Personal info
+                                  </a>
+                        </li>
+                        <li class="nav-item ml-5">
+                            <a class="nav-link text-white" data-toggle="collapse" href="#address" role="button" aria-expanded="false" aria-controls="address">
+                                Address
+                                  </a>
+                        </li>
+                        <li class="nav-item ml-5">
+                            <a class="nav-link text-white" data-toggle="collapse" href="#changepass" role="button" aria-expanded="false" aria-controls="changepass">
+                                Change Password
+                                  </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="collapse container" id="info">
+                <div class="row ">
+                    <div class="float-left">
+                        <div class="detail">
+        
+                        </div>
+                        <ul>
+                            <li>Name : <span><%= name %></span></li>
+                            <li>Email : <span><%= email %></span></li>
+                            <li>Mobile Number : <span>1234567890</span></li>
+                        </ul>
                     </div>
-               <ul>
-               <li>Name : <span><%= name %></span></li>
-               <li>Email : <span><%= email %></span></li>
-               <li>Mobile Number : <span>1234567890</span></li>
-               </ul>
+                    <div class="float-right ml-auto">
+                        <a class=" nav-link" data-toggle="collapse" href="#editprofile" role="button" aria-expanded="false" aria-controls="editprofile">
+                            Edit Profile
+                              </a>
+                    </div>
                 </div>
-              <div class="float-right ml-auto">
-                <a class=" nav-link" data-toggle="collapse" href="#editprofile" role="button" aria-expanded="false" aria-controls="editprofile">
-                    Edit Profile
-                  </a>
-              </div>
-          </div>
-        </div>
-          <div class="collapse container " id="changepass">
-              <p>Chnage Password</p>
-            <form class="w-50">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="old password">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="new password">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="confirm password">
-                </div>
-                <button type="button" class="btn btn-success w-50 text-center">Save</button>
-              </form>
-          </div>
-          <div class="collapse container w-50" id="editprofile">
-            <p><strong>Personal Info </strong></p>
-            <form>
-                <div class="form-group">
-                  <label for="InputName">Name</label>
-                  <input type="text" class="form-control" id="InputName" placeholder="Name">
-                </div>
-                <div class="form-group">
-                  <label for="InputEmail">Email</label>
-                  <input type="email" class="form-control" id="InputEmail" placeholder="Email">
-                </div>
-                <div class="form-group ">
-                    <label for="InputMob">Mobile NUmber</label>
-                    <input type="text" class="form-control" id="InputMob" placeholder="Mobile Number"> 
-                </div>
-                <button type="button" class="btn btn-success w-100">Update</button>
-              </form>
-        </div>
-        <div class="collapse container" id="address">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title"><b>Address</b></h5>
-               
-                  <p class="card-text">
-                    <h1>John Doe </h1>
-                    <p class="title">CEO & Founder, Example</p>
-                    <p>Harvard University</p>
-                  </p>
-                </div>
-              </div>
-        </div>
-        </div>
+            </div>
+            <div class="collapse container " id="changepass">
+                <p>Chnage Password</p>
+                <form class="w-50">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="old password">
+                            </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="new password">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="confirm password">
+                            </div>
+                                <button type="button" class="btn btn-success w-50 text-center">Save</button>
+                          </form>
+                        </div>
+                        <div class="collapse container w-50" id="editprofile">
+                            <p><strong>Personal Info </strong></p>
+                            <form>
+                                <div class="form-group">
+                                    <label for="InputName">Name</label>
+                                    <input type="text" class="form-control" id="InputName" placeholder="Name">
+                            </div>
+                                    <div class="form-group">
+                                        <label for="InputEmail">Email</label>
+                                        <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+                            </div>
+                                        <div class="form-group ">
+                                            <label for="InputMob">Mobile NUmber</label>
+                                            <input type="text" class="form-control" id="InputMob" placeholder="Mobile Number"> 
+                            </div>
+                                            <button type="button" class="btn btn-success w-100">Update</button>
+                          </form>
+                                    </div>
+                                    <div class="collapse container" id="address">
+                                        <div class="card" style="width: 18rem;">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Address</b></h5>
+        
+                                                <p class="card-text">
+                                                    <h1>John Doe </h1>
+                                                    <p class="title">CEO & Founder, Example</p>
+                                                    <p>Harvard University</p>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 </script>
 
 
@@ -309,7 +309,7 @@
                               
                             </div>
                           </div>
-                           <div class="card card-body mt-5"> 
+                           <div class="card card-body mt-5 table-responsive"> 
                                <table class="table table-border table-striped text-center">
                                    <thead class="thead-dark ">
                                        <tr>
@@ -339,8 +339,71 @@
             <td><%= customer_name %></td>
             <td><%= mobile_number %></td>
             <td>0000.00</td>
-            <td><button class="btn btn-danger">Give</button><button class="btn btn-success">Take</button></td>
+            <td>
+
+
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#giveModalCenter">Give</button><button  type="button" class="btn btn-success" data-toggle="modal" data-target="#takeModalCenter">Take</button>
+                
+                 <!--give-->
+                <div class="modal fade" id="giveModalCenter" tabindex="-1" role="dialog" aria-labelledby="giveModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header bg-danger">
+                          <h5 class="modal-title" id="giveModalLongTitle">Debit</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body ">
+                           
+                                <h3><%= customer_name %></h3>
+                                <input class="form-control mb-2" type="number" placeholder="amount">
+                                <textarea class="form-control" name="" id="" placeholder="message"></textarea>
+                           
+                           
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" id="debit" class="btn btn-primary">Debit</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--take-->
+
+                  <div class="modal fade" id="takeModalCenter" tabindex="-1" role="dialog" aria-labelledby="takeModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header bg-success">
+                          <h5 class="modal-title" id="takeModalLongTitle">Credit</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body ">
+                           
+                                <h3><%= customer_name %></h3>
+                                <input class="form-control mb-2" type="number" placeholder="amount">
+                                <textarea class="form-control" name="" id="" placeholder="message"></textarea>
+                           
+                           
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" id="credit" class="btn btn-primary">credit</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+            
+            </td>
             <td><button class="btn btn-warning">summary</button></td>  
+            
+              
+              <!-- Modal -->
+              
     </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
