@@ -38,8 +38,10 @@ module.exports = {
 
             await req.user.save();
             res.status(200).send({ success: "successfully logout" });
-        } catch (e) {
-            res.status(500).send(e);
+        } catch (error) {
+            errorBuilder(error).then((error) => {
+                res.status(error.code).send(error.body)
+            })
         }
 
     },
