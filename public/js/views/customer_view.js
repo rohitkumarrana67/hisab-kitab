@@ -1,24 +1,27 @@
-define(['jquery', 'underscore', 'backbone', 'models/customer', 'collections/customer'], function ($, _, Backbone, CustomerModel, CustomerCollection) {
 
 
-    var CustomerView = Backbone.View.extend({
-        model: CustomerModel,
-        tagName: "tr",
-        template: _.template($('#customer-template').html()),
-        events: {
-            'click #saveChange': "saveChange"
-        },
-        saveChange: function (params) {
-            console.log("hello");
-        },
-        initialize: function () {
-            this.render();
-        },
-        render: function () {
-            this.$el.html(this.template(this.model));
-            return this;
-        }
-    });
 
-    return CustomerView;
+var CustomerView = Backbone.View.extend({
+    model: CustomerModel,
+    tagName: "tr",
+    template: _.template($('#customer-template').html()),
+    events: {
+        'click #give': "creditCustomer"
+    },
+    creditCustomer: function () {
+        var give_modal_view = new GiveModalView({
+            model: this.model
+        });
+        give_modal_view.render();
+        $(give_modal_view.el).modal('show');
+
+    },
+    initialize: function () {
+        this.render();
+    },
+    render: function () {
+        this.$el.html(this.template(this.model));
+        return this;
+    }
 });
+
