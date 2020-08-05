@@ -1,5 +1,4 @@
-const Joi = require("@hapi/joi");
-const { func } = require("@hapi/joi");
+const Joi = require("joi");
 
 const createValidator = async function (req_data) {
     const schema = Joi.object({
