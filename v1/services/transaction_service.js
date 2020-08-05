@@ -2,8 +2,8 @@ const TransactionDispatcher = require("../data_dispatchers/transaction_dispatche
 const TransactionEntityBuilder = require("../entity_builders/transaction_builder")
 
 
-module.exports = TransactionService = function(req_data){
-    this.disaptcher = new TransactionDispatcher(req_data)
+module.exports = TransactionService = function(req_data, user_id){
+    this.disaptcher = new TransactionDispatcher(req_data, user_id)
     this.entity_builder = new TransactionEntityBuilder(req_data)
 }
 
@@ -14,5 +14,10 @@ TransactionService.prototype.getTransactionList = async function () {
 
 TransactionService.prototype.createEntry = async function () {
     const dispatcher_data = await this.disaptcher.createEntry()
-    return this.entity_builder.buildCreateEntry(dispatcher_data)
+    return await this.entity_builder.buildCreateEntry(dispatcher_data)
+}
+
+TransactionService.prototype.getBalance = async function () {
+    const dispatcher_data = await this.disaptcher.getBalance()
+    return this.entity_builder.buildBalance(dispatcher_data)
 }

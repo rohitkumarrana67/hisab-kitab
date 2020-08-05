@@ -9,6 +9,14 @@ const indexRequestValidator = async function (params) {
     return await params_schema.validate(params, {convert:true})
 }
 
+const balanceRequestValidator = async function (params) {
+    const params_schema = Joi.object({
+        id : Joi.string().guid({version:"uuidv4"}).required()
+    }).options({abortEarly: false})
+
+    return await params_schema.validate(params, {convert:true})
+}
+
 const createEntryValidator = async function (params, body) {
     const params_schema = Joi.object({
         id : Joi.string().guid({version:"uuidv4"}).required(),
@@ -28,5 +36,6 @@ const createEntryValidator = async function (params, body) {
 
 module.exports = {
     indexRequestValidator,
-    createEntryValidator
+    createEntryValidator,
+    balanceRequestValidator
 }
