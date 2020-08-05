@@ -6,11 +6,17 @@ var GiveModalView = Backbone.View.extend({
         role: "dialog"
     },
     events: {
-        "click #debit": 'debit'
+        "click #debit": 'debit',
+        "click #close": 'removeFromDOM'
     },
     debit: function (params) {
         console.log($('#give-amount-' + this.model.customer_id).val());
         console.log($('#give-message-' + this.model.customer_id).val());
+        window.location = "#customers"
+    },
+    removeFromDOM: function () {
+        console.log("hello");
+        $('#add-users-modal').remove();
     },
     template: _.template($('#give-modal-template').html()),
     initialize: function () {

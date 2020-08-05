@@ -21,6 +21,11 @@ footer{
     box-shadow: 5px 5px 10px black;
 }
 
+.customer-banner
+{
+    box-shadow: 2px 2px 20px black;
+}
+
 .after-auth{
     display: none;
 }

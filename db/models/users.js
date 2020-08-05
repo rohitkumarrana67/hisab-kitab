@@ -33,6 +33,12 @@ const UserSchema = new Schema({
         required: true,
         minlength: 7,
     },
+    mobile_number: {
+        type: Number
+    },
+    address: {
+        type: String
+    },
     tokens: [{
         token: {
             type: String,

@@ -1,5 +1,5 @@
 var ProfileView = Backbone.View.extend({
-    collection: UserCollection,
+    collection: user_collection,
     template: _.template($('#profile-template').html()),
     initialize: function () {
         this.render();
