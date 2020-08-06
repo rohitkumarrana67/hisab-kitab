@@ -346,7 +346,7 @@
     <script type="text/template" id="customer-template">
             <td><%= customer_name %></td>
             <td><%= mobile_number %></td>
-            <td>0000.00</td>
+            <td><%= balance%></td>
             <td>
                 <button type="button" class="btn btn-danger" id="give" >Give</button><button  type="button" class="btn btn-success" id="take" >Take</button>
                 
@@ -374,7 +374,33 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
-                <button type="button" id="debit" data-dismiss="modal" class="btn btn-primary">Debit</button>
+                <button type="button" id="give" data-dismiss="modal" class="btn btn-primary">Debit</button>
+              </div>
+            </div>
+          </div>
+            
+    </script>
+    <script type="text/template" id="take-modal-template">
+
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header bg-success">
+                <h5 class="modal-title" id="takeModalLongTitle">Credit</h5>
+                <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body ">
+                 
+                      <h3><%= customer_name %></h3>
+                      <input class="form-control mb-2" type="number" id="give-amount-<%=customer_id%>" placeholder="amount">
+                      <textarea class="form-control" name="" placeholder="message" id="give-message-<%=customer_id%>"></textarea>
+                 
+                 
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+                <button type="button" id="take" data-dismiss="modal" class="btn btn-primary">Credit</button>
               </div>
             </div>
           </div>
@@ -396,6 +422,7 @@
 
     <script src="js/models/user.js"></script>
     <script src="js/models/customer.js"></script>
+    <script src="js/models/transaction.js"></script>
     <script src="js/collections/users.js"></script>
     <script src="js/collections/customer.js"></script>
     <script src="js/router.js"></script>
@@ -406,6 +433,7 @@
     <script src="js/views/customers_view.js"></script>
     <script src="js/views/customer_view.js"></script>
     <script src="js/views/give_modal_view.js"></script>
+    <script src="js/views/take_modal_view.js"></script>
     <script src="js/main.js"></script>
 
 </body>

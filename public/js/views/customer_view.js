@@ -7,6 +7,7 @@ var CustomerView = Backbone.View.extend({
     template: _.template($('#customer-template').html()),
     events: {
         'click #give': "creditCustomer",
+        'click #take': "debitCustomer",
     },
     creditCustomer: function () {
         var give_modal_view = new GiveModalView({
@@ -14,6 +15,15 @@ var CustomerView = Backbone.View.extend({
         });
         give_modal_view.render();
         $(give_modal_view.el).modal('show');
+
+    },
+
+    debitCustomer: function () {
+        var take_modal_view = new TakeModalView({
+            model: this.model
+        });
+        take_modal_view.render();
+        $(take_modal_view.el).modal('show');
 
     },
 

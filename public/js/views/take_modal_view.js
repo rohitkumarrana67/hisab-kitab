@@ -1,4 +1,4 @@
-var GiveModalView = Backbone.View.extend({
+var TakeModalView = Backbone.View.extend({
     className: "modal",
     attributes: {
         id: "add-users-modal",
@@ -6,10 +6,10 @@ var GiveModalView = Backbone.View.extend({
         role: "dialog"
     },
     events: {
-        "click #give": 'give',
+        "click #take": 'take',
         "click #close": 'removeFromDOM'
     },
-    give: function (params) {
+    take: function (params) {
         let customer_id = this.model.customer_id;
         var amount = $('#give-amount-' + customer_id).val();
         var message = $('#give-message-' + customer_id).val();
@@ -20,7 +20,7 @@ var GiveModalView = Backbone.View.extend({
         })
 
         transaction.save(null, {
-            url: `http://localhost:3060/users/customer/${customer_id}/give`,
+            url: `http://localhost:3060/users/customer/${customer_id}/take`,
             headers: { 'auth-token': localStorage.getItem('khata-token') },
             success: function (response) {
                 location.reload();
@@ -35,7 +35,7 @@ var GiveModalView = Backbone.View.extend({
         console.log("hello");
         $('#add-users-modal').remove();
     },
-    template: _.template($('#give-modal-template').html()),
+    template: _.template($('#take-modal-template').html()),
     initialize: function () {
     },
     render: function () {

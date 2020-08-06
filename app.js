@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use("/users", userRouter);
 app.use(customerRouter);
-app.use(authenticator);
+// app.use(authenticator);
 app.use(transactionRouter);
 app.use(express.static(__dirname + "/public"));
 
