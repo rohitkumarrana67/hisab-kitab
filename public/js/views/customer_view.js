@@ -1,4 +1,4 @@
-
+var router = new AppRouter();
 
 
 var CustomerView = Backbone.View.extend({
@@ -8,6 +8,7 @@ var CustomerView = Backbone.View.extend({
     events: {
         'click #give': "creditCustomer",
         'click #take': "debitCustomer",
+        'click #summary': "summaryView"
     },
     creditCustomer: function () {
         var give_modal_view = new GiveModalView({
@@ -27,11 +28,17 @@ var CustomerView = Backbone.View.extend({
 
     },
 
+    summaryView : function (e) {
+        var $target = $(e.target)
+        router.navigate($target.attr("data-url"), {trigger:true})
+    },
+
     initialize: function () {
+        this.model.on("change", this.render, this);
         this.render();
     },
     render: function () {
-        this.$el.html(this.template(this.model));
+        this.$el.html(this.template({model : this.model}));
         return this;
     }
 });

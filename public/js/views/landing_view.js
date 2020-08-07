@@ -9,7 +9,13 @@ var LandingView = Backbone.View.extend({
         var $li = $(e.target);
         router.navigate($li.attr("data-url"), { trigger: true });
     },
-
+    initialize: function () {
+        this.template = _.template($('#home-template').html())
+        this.render()
+    },
+    render: function(){
+        this.$el.parent().parent().find('#content').html(this.template())
+    }
 
 });
 

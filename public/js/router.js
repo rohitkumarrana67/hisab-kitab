@@ -1,9 +1,15 @@
 var AppRouter = Backbone.Router.extend({
     routes: {
+        '' : 'homeView',
         'signup': 'signupView',
         'login': 'loginView',
         'profile': 'profileView',
         'customers': 'customersView'
+    },
+    homeView: function(){
+        var landingView = new LandingView({
+            el: ".landing"
+        })
     },
     loginView: function () {
         var login_view = new LoginView({
@@ -41,7 +47,6 @@ var AppRouter = Backbone.Router.extend({
         });
         customers_view.render();
     }
-
 
 });
 
