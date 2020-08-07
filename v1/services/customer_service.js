@@ -14,5 +14,5 @@ CustomerService.prototype.create = async function (req_data) {
 
 CustomerService.prototype.getCustomers = async function (req_data) {
     const dispatcher_data = await this.dispatcher.getCustomers(req_data);
-    return this.builder.getCustomers(dispatcher_data);
+    return await this.builder.getCustomers(dispatcher_data);
 } 

@@ -24,7 +24,6 @@ var SignupView = Backbone.View.extend({
         user.save(null, {
             url: "http://localhost:3060/users",
             success: function (response) {
-                self.collection.add(user);
                 localStorage.setItem('khata-token', response.toJSON().token);
                 window.location = "#customers";
             },
