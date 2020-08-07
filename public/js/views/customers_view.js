@@ -3,7 +3,7 @@
 var CustomersView = Backbone.View.extend({
     model: CustomerModel,
     collection: customer_collection,
-    template: _.template($('#main-template').html()),
+    template: _.template($('#main-customers-template').html()),
     events: {
         'click #create': 'createCustomer',
     },
@@ -34,19 +34,16 @@ var CustomersView = Backbone.View.extend({
         this.collection.fetch({
             headers: { 'auth-token': localStorage.getItem('khata-token') },
             success: function (response) {
-                response.toJSON().forEach(customer => {
-                    let customer_id = customer.customer_id;
+                response.each(customer => {
+                    let customer_id = customer.get('customer_id');
                     let transaction = new TransactionModel();
 
                     transaction.fetch({
                         url: `http://localhost:3060/users/customer/balance/${customer_id}`,
                         headers: { 'auth-token': localStorage.getItem('khata-token') },
                         success: function (balance) {
-                            let data = {
-                                ...customer,
-                                ...balance.toJSON()
-                            }
-                            $customers_list.append((new CustomerView({ model: data })).render().$el);
+                            customer.set('balance', balance.get('balance'))
+                            $customers_list.append((new CustomerView({ model: customer })).render().$el);
                         },
                         error: function (error, response) {
                             console.log(response);
