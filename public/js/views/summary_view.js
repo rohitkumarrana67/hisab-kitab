@@ -18,7 +18,8 @@ var SummaryView = Backbone.View.extend({
     cancelevent:function(){
         $(".editbutton").removeClass("collapse")
         $(".morebutton").removeClass("show")
-        $("input").css('disabled','true')
+        $("input").attr('disabled','true')
+        $("textarea").attr('disabled','true')
     },
     render : function () {
         this.$el.html(this.template(this.model))
