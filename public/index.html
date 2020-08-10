@@ -367,29 +367,29 @@
             </div>
         </script>
 
-    <!-- Summary View Template -->
-    <script type="text/template" id="summary-template">
-            <div class="container my-3 border border-muted">
-                <h2 class="my-4 text-warning ml-4"> <b> SUMMARY</b></h2>
+        <!-- Summary View Template -->
+        <script type="text/template" id="summary-template">
+            <div class="container p-3 my-3 border border-muted">
+                <h2 class="my-4 text-warning ml-4"> <b>Transaction Summary</b></h2>
                 <div class="row p-3 my-2 mx-2" style="box-shadow: 5px 5px 5px 5px #F0F0F0;">
                     <div class="col-lg-6">
                         <div class="row m-3">
-                            <h5>CUSTOMER NAME : </h5>
-                            <input type="text" id="lname" name="lname" class="ml-3" disabled>
+                            <div class="col-md-5"><h5>Name: </h5></div>
+                            <input type="text" id="lname" name="lname" class="ml-3 p-1" disabled value="<%= model.get('customer_name') %>">
                         </div>
                         <div class="row m-3">
-                            <h5>CUSTOMER CONTACT : </h5>
-                            <input type="text" id="lname" name="lname" class="ml-3" disabled>
+                            <div class="col-md-5"><h5>Mobile Number: </h5></div>
+                            <input type="text" id="lname" name="lname" class="ml-3 p-1" disabled value="<%= model.get('mobile_number') %>">
                         </div>
                         <div class="row m-3">
-                            <h5>CUSTOMER E-MAIL : </h5>
-                            <input type="text" id="lname" name="lname" class="ml-3" disabled>
+                            <div class="col-md-5"><h5>E-Mail ID:</h5></div>
+                            <input type="text" id="lname" name="lname" class="ml-3 p-1" disabled value="<%= model.get('email') %>">
                         </div>
                     </div >
                     <div class="col-lg-6">
                         <div class="row m-3">
-                            <h5>CUSTOMER ADDRESS : </h5>
-                            <textarea disabled class="ml-3 w-50" ></textarea>
+                            <h5>Address: </h5>
+                            <textarea class="ml-3 w-75" disabled><%= model.get('address') %></textarea>
                         </div>
                         <div class="row">
                             <div class="col-lg-7"></div>
@@ -419,6 +419,7 @@
                         </table>
                     </div>
                 </div>
+            </div>
         </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
