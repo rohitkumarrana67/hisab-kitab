@@ -1,7 +1,6 @@
 var SummaryView = Backbone.View.extend({
     template : _.template($('#summary-template').html()),
     initialize : function (data) {
-        console.log(data.model)
         this.model = data.model
         this.render()
     },
@@ -16,13 +15,10 @@ var SummaryView = Backbone.View.extend({
         $("textarea").removeAttr('disabled')
     },
     cancelevent:function(){
-        $(".editbutton").removeClass("collapse")
-        $(".morebutton").removeClass("show")
-        $("input").attr('disabled','true')
-        $("textarea").attr('disabled','true')
+        this.render()
     },
     render : function () {
-        this.$el.html(this.template(this.model))
+        this.$el.html(this.template({model : this.model}))
         return this
     }
 });
