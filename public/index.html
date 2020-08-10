@@ -138,65 +138,99 @@
 
         <!-- Profile View Template -->
         <script type="text/template" id="profile-template" src="profile_template.html">
-            <div class=" container mt-3">
-                <div class="bg-dark p-2 text-white mb-2">PERSONAL INFORMATION</div>
-                <div  id="info">
-                    <div class="row ">
-                        <div class="col-12 col-sm-2"><h4>Name:</h4></div>
-                        <div class="col-12 col-sm-10"><h4><%=name%></h4></div>
-                        <div class="col-12 col-sm-2"><h4>Email:</h4></div>
-                        <div class="col-12 col-sm-10"><h4><%=email%></h4></div>
-                        <div class="col-12 col-sm-2"><h4>Mobile Number:</h4></div>
-                        <div class="col-12 col-sm-10"></div>
-                    </div>
+            <div class="container">
+                <div class="row">
+                  <div class="col-sm-2 img">
+                    <img src="img/img_avatar .png" alt="Avatar" class="avatar"> <br>
+                    <a class=" nav-link editprofile">
+                      Edit Profile
+                        </a>
+                  </div>
+                  <div class="col-md-6 details">
+                    <blockquote>
+                      <h5 class="text-primary">Personal Infomation</h5>
+                      <div>
+                        <ul class="container">
+                          <li>Name : <span><%= name %></span></li>
+                          <li>Email : <span><%= email %></span></li>
+                          <li>Mobile Number : <span>1234567890</span></li>
+                      </ul>
+                      </div>
+                      <div id="eprofile">
+                        <p class="text-primary"><strong>Edit Profile </strong></p>
+                        <form>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="InputName">Name</label>
+                                <input type="text" class="form-control" id="InputName" placeholder="Name" value= <%=name %> >
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="InputEmail">Email</label>
+                                <input type="email" class="form-control" id="InputEmail" placeholder="Email" value= <%=email %> >
+                            </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group ">
+                                <label for="InputMob">Mobile NUmber</label>
+                                <input type="text" class="form-control" id="InputMob" placeholder="Mobile Number"> 
+                            </div>
+                            </div>
+                          </div>
+                          <button type="button" class="btn btn-success w-50" id="update_profile">Update</button>
+                       </form>
+                      </div>
+                  </div>
                 </div>
-                <div class="collapse container " id="changepass">
-                    <p>Chnage Password</p>
-                    <form class="w-50">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="old password">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="new password">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="confirm password">
-                        </div>
-                        <button type="button" class="btn btn-success w-50 text-center">Save</button>
-                    </form>
+              
+                <div class="row">
+                  <div class="col-sm-2 ">
+                  <h5 class="text-primary pl-3">Address</h4>
+                  </div>
+                  <div class="col-md-6">
+                    <blockquote>
+                    <address>Varanasi Uttar Pradesh</address>
+                  </div>
                 </div>
-                <div class="collapse container w-50" id="editprofile">
-                    <p><strong>Personal Info</strong></p>
-                    <form>
-                        <div class="form-group">
-                            <label for="InputName">Name</label>
-                            <input type="text" class="form-control" id="InputName" placeholder="Name">
+                <div class="row">
+                  <div class="col-sm-2">
+                    <h5 class="text-primary pl-3">Change Password</h5>
+                  </div>
+                  <div class="col-md-6 ">
+                    <blockquote>
+                      <form>
+                        <div class="row">
+                          <div class="col-md-6">                  
+                            <div class="form-group">
+                              <input type="text" class="form-control" placeholder="old password" id="oldpass">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <input type="text" class="form-control" placeholder="new password" id="newpass">
+                              </div>
+                          </div>
                         </div>
-                        <div class="form-group">
-                            <label for="InputEmail">Email</label>
-                            <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <input type="text" class="form-control" placeholder="confirm password" id="confirmpass">
+                          </div>
+                          </div>
                         </div>
-                        <div class="form-group ">
-                            <label for="InputMob">Mobile NUmber</label>
-                            <input type="text" class="form-control" id="InputMob" placeholder="Mobile Number"> 
-                        </div>
-                        <button type="button" class="btn btn-success w-100">Update</button>
-                    </form>
+        
+                        <button type="button" class="btn btn-success w-50 text-center" id="change_password">Save</button>
+                      </form>
+                  </div>
                 </div>
-                <div class="collapse container" id="address">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><b>Address</b></h5>
-                            <p class="card-text">
-                                <h1>John Doe </h1>
-                                <p class="title">CEO & Founder, Example</p>
-                                <p>Harvard University</p>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </script>
+        
+              </div>
+    </script>
+    
 
         <!-- Signup View Template -->
         <script type="text/template" id="signup-template">

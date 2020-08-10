@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const mongoDB_url = process.env.MONGODB_URL;
+const mongoDB_url = 'mongodb://localhost:27017/khataBook';
 const dbConnect = () => {
 
     mongoose.connect(mongoDB_url, {
