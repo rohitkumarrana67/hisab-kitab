@@ -1,112 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/style.css">
-        <script src="https://kit.fontawesome.com/2f55da0773.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
-    </head>
-    <body>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container landing">
-                <a class="navbar-brand" href="#">Hisab-Kitab</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="#">Help</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="#">Contact</a>
-                        </li>
-                    </ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/2f55da0773.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
+</head>
 
-                    <ul class="navbar-nav my-2 my-lg-0">
-                        <li class="nav-item nav-link before-auth" data-url="signup">
-                            REGISTER
-                        </li>
-                        <li class="nav-item nav-link before-auth" data-url="login">
-                            LOGIN
-                        </li>
-                        <li class="nav-item nav-link  after-auth" data-url="profile">
-                            PROFILE
-                        </li>
-                        <li class="nav-item nav-link after-auth" id="logout">LOGOUT</li>
-                    </ul>
-                </div>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container landing">
+            <a class="navbar-brand" href="#">Hisab-Kitab</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">Contact</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav my-2 my-lg-0">
+                    <li class="nav-item nav-link before-auth" data-url="signup">
+                        REGISTER
+                    </li>
+                    <li class="nav-item nav-link before-auth" data-url="login">
+                        LOGIN
+                    </li>
+                    <li class="nav-item nav-link  after-auth" data-url="profile">
+                        PROFILE
+                    </li>
+                    <li class="nav-item nav-link after-auth" id="logout">LOGOUT</li>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <!-- Main Content Container -->
-        <div id="content"></div>
+    <!-- Main Content Container -->
+    <div id="content"></div>
 
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-4 offset-1 col-sm-2">
-                        <h5>Links</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-7 col-sm-5">
-                        <h5>Our Address</h5>
-                        <address>
-                            121, Clear Water Bay Road<br>
-                            Clear Water Bay, Kowloon<br>
-                            HONG KONG<br>
-                            <i class="fa fa-phone fa-lg"></i> : +852 1234 5678<br>
-                            <i class="fa fa-fax fa-lg"></i> : +852 8765 4321<br>
-                            <i class="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net">www.hisabkitab.com</a>
-                        </address>
-                    </div>
-                    <div class="col-12 col-sm-4 align-self-center">
-                        <div class="text-center">
-                            <a class="btn btn-social-icon btn-google" href="http://google.com/+">
-                                <i class="fa fa-google-plus fa-lg"></i></a>
-                            <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id=">
-                                <i class="fa fa-facebook fa-lg"></i></a>
-                            <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/">
-                                <i class="fa fa-linkedin fa-lg"></i></a>
-                            <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/">
-                                <i class="fa fa-twitter fa-lg"></i></a>
-                            <a class="btn btn-social-icon btn-google" href="http://youtube.com/">
-                                <i class="fa fa-youtube fa-lg"></i></a>
-                            <a class="btn btn-social-icon btn-google " href="mailto:">
-                                <i class="fa fa-envelope-o fa-lg"></i></a>
-                        </div>
-                    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-4 offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-auto">
-                        <p>© Copyright 2018 hisab-kitab corporation</p>
+                <div class="col-7 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+                        121, Clear Water Bay Road<br>
+                        Clear Water Bay, Kowloon<br>
+                        HONG KONG<br>
+                        <i class="fa fa-phone fa-lg"></i> : +852 1234 5678<br>
+                        <i class="fa fa-fax fa-lg"></i> : +852 8765 4321<br>
+                        <i class="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net">www.hisabkitab.com</a>
+                    </address>
+                </div>
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center">
+                        <a class="btn btn-social-icon btn-google" href="http://google.com/+">
+                            <i class="fa fa-google-plus fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id=">
+                            <i class="fa fa-facebook fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/">
+                            <i class="fa fa-linkedin fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/">
+                            <i class="fa fa-twitter fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-google" href="http://youtube.com/">
+                            <i class="fa fa-youtube fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-google " href="mailto:">
+                            <i class="fa fa-envelope-o fa-lg"></i></a>
                     </div>
                 </div>
             </div>
-        </footer>
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <p>© Copyright 2018 hisab-kitab corporation</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-        <!-- Home View Template -->
-        <script type="text/template" id="home-template">
+    <!-- Home View Template -->
+    <script type="text/template" id="home-template">
             <div class="jumbotron">
                 <div class="container">
                     <div class="row">
@@ -136,8 +138,8 @@
             </div>
         </script>
 
-        <!-- Profile View Template -->
-        <script type="text/template" id="profile-template" src="profile_template.html">
+    <!-- Profile View Template -->
+    <script type="text/template" id="profile-template" src="profile_template.html">
             <div class=" container mt-3">
                 <div class="bg-dark p-2 text-white mb-2">PERSONAL INFORMATION</div>
                 <div  id="info">
@@ -198,8 +200,8 @@
             </div>
         </script>
 
-        <!-- Signup View Template -->
-        <script type="text/template" id="signup-template">
+    <!-- Signup View Template -->
+    <script type="text/template" id="signup-template">
             <div class="container-fluid signup-container ">
                 <div class="row">
                     <div class="col-md-6 p-0 ">
@@ -226,8 +228,8 @@
             </div>
         </script>
 
-        <!-- Login View Template -->
-        <script type="text/template" id="login-template">
+    <!-- Login View Template -->
+    <script type="text/template" id="login-template">
             <div class="container-fluid signup-container ">
                 <div class="row">
                     <div class="col-6 p-0 ">
@@ -251,8 +253,8 @@
             </div>
         </script>
 
-        <!-- Main Customers View Template -->
-        <script type="text/template" id="main-customers-template">
+    <!-- Main Customers View Template -->
+    <script type="text/template" id="main-customers-template">
             <div class="container">
                 <div class="row main-box">
                     <div class="col-12 p-3">
@@ -307,8 +309,8 @@
             </div>
         </script>
 
-        <!-- Customer View Template -->
-        <script type="text/template" id="customer-template">
+    <!-- Customer View Template -->
+    <script type="text/template" id="customer-template">
             <td><%= model.get('customer_name') %></td>
             <td><%= model.get('mobile_number') %></td>
             <td><%= model.get('balance') %></td>
@@ -319,8 +321,8 @@
             <td><button class="btn btn-warning" id="summary" data-url="summary">Summary</button></td>  
         </script>
 
-        <!-- Give Modal Template -->
-        <script type="text/template" id="give-modal-template">
+    <!-- Give Modal Template -->
+    <script type="text/template" id="give-modal-template">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-danger">
@@ -342,8 +344,8 @@
             </div>
         </script>
 
-        <!-- Take Modal Template -->
-        <script type="text/template" id="take-modal-template">
+    <!-- Take Modal Template -->
+    <script type="text/template" id="take-modal-template">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-success">
@@ -420,33 +422,34 @@
             </div>
         </script>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-        <script src="js/lib/jquery.js"></script>
-        <script src="js/lib/underscore.js"></script>
-        <script src="js/lib/backbone.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-        <script src="js/models/user.js"></script>
-        <script src="js/models/customer.js"></script>
-        <script src="js/models/transaction.js"></script>
-        <script src="js/collections/users.js"></script>
-        <script src="js/collections/customer.js"></script>
-        <script src="js/router.js"></script>
-        <script src="js/views/landing_view.js"></script>
-        <script src="js/views/signup_view.js"></script>
-        <script src="js/views/login_View.js"></script>
-        <script src="js/views/profile_view.js"></script>
-        <script src="js/views/customers_view.js"></script>
-        <script src="js/views/customer_view.js"></script>
-        <script src="js/views/summary_view.js"></script>
-        <script src="js/views/give_modal_view.js"></script>
-        <script src="js/views/take_modal_view.js"></script>
-        <script src="js/main.js"></script>
-    </body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/underscore.js"></script>
+    <script src="js/lib/backbone.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="js/models/user.js"></script>
+    <script src="js/models/customer.js"></script>
+    <script src="js/models/transaction.js"></script>
+    <script src="js/collections/users.js"></script>
+    <script src="js/collections/customer.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/views/landing_view.js"></script>
+    <script src="js/views/signup_view.js"></script>
+    <script src="js/views/login_View.js"></script>
+    <script src="js/views/profile_view.js"></script>
+    <script src="js/views/customers_view.js"></script>
+    <script src="js/views/customer_view.js"></script>
+    <script src="js/views/summary_view.js"></script>
+    <script src="js/views/give_modal_view.js"></script>
+    <script src="js/views/take_modal_view.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
 </html>

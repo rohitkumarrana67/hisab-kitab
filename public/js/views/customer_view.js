@@ -28,11 +28,10 @@ var CustomerView = Backbone.View.extend({
 
     },
 
-    summaryView : function (e) {
-        var view = new SummaryView({model: this.model})
-        $("#content").html(view.el)
+    summaryView: function (e) {
+        var view = new SummaryView({ model: this.model, el: '#content' })
         var $target = $(e.target)
-        router.navigate($target.attr("data-url"), {trigger:true})
+        router.navigate($target.attr("data-url") + "/" + this.model.get('customer_id'), { trigger: true })
     },
 
     initialize: function () {
@@ -40,7 +39,7 @@ var CustomerView = Backbone.View.extend({
         this.render();
     },
     render: function () {
-        this.$el.html(this.template({model : this.model}));
+        this.$el.html(this.template({ model: this.model }));
         return this;
     }
 });

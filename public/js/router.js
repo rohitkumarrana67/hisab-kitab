@@ -1,12 +1,12 @@
 var AppRouter = Backbone.Router.extend({
     routes: {
-        '' : 'homeView',
+        '': 'homeView',
         'signup': 'signupView',
         'login': 'loginView',
         'profile': 'profileView',
-        'customers': 'customersView'
+        'customers': 'customersView',
     },
-    homeView: function(){
+    homeView: function () {
         var landingView = new LandingView({
             el: ".landing"
         })
