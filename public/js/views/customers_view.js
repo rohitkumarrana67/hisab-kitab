@@ -35,22 +35,8 @@ var CustomersView = Backbone.View.extend({
             headers: { 'auth-token': localStorage.getItem('khata-token') },
             success: function (response) {
                 response.each(customer => {
-                    let customer_id = customer.get('customer_id');
-                    let transaction = new TransactionModel();
-
-                    transaction.fetch({
-                        url: `http://localhost:3060/users/customer/balance/${customer_id}`,
-                        headers: { 'auth-token': localStorage.getItem('khata-token') },
-                        success: function (balance) {
-                            customer.set('balance', balance.get('balance'))
-                            $customers_list.append((new CustomerView({ model: customer })).render().$el);
-                        },
-                        error: function (error, response) {
-                            console.log(response);
-                        }
-                    })
-
-
+                    console.log(customer);
+                    $customers_list.append((new CustomerView({ model: customer })).render().$el);
                 });
 
             },
