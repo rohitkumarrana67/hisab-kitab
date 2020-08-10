@@ -49,5 +49,15 @@ module.exports = {
         const UserBuilder = new Builder();
         const res_data = UserBuilder.userProfile(req.user);
         res.status(201).send(res_data);
+    },
+    setAvatar: (req, res) => {
+        req.user.avatar = req.file.buffer;
+        req.user.save().then(data => {
+            res.status(201).send({ success: true, message: "Avatar added succesfully!" });
+        }).catch(error => {
+            errorBuilder(error).then((error) => {
+                res.status(error.code).send(error.body)
+            });
+        });
     }
 }
