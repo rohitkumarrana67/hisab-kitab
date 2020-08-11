@@ -35,7 +35,6 @@ var CustomersView = Backbone.View.extend({
             headers: { 'auth-token': localStorage.getItem('khata-token') },
             success: function (response) {
                 response.each(customer => {
-                    console.log(customer);
                     $customers_list.append((new CustomerView({ model: customer })).render().$el);
                 });
 
