@@ -109,318 +109,318 @@
 
     <!-- Home View Template -->
     <script type="text/template" id="home-template">
-            <div class="jumbotron">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-4">
-                            <img src="./img/logo.png" alt="">
-                        </div>
-                        <div class="col-8">
-                            <h1 class="display-1">HISAB-KITAB</h1>
-                            <p class="lead">Digital way of Manage your Business & Personal ledgers </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container mb-5">
+        <div class="jumbotron">
+            <div class="container">
                 <div class="row">
-                    <div class="col-6 customer-banner"> <img src="./img/customers.png" class="img-fluid" alt=""></div>
-                    <div class="col-6 d-flex justify-content-center align-items-center">
-                        <div>
-                            <h1>Easy to manage customers</h1>
-                            <ul>
-                                <li>Add transaction for the customers</li>
-                                <li>Instance balanace check</li>
-                            </ul>
-                        </div>
+                    <div class="col-4">
+                        <img src="./img/logo.png" alt="">
+                    </div>
+                    <div class="col-8">
+                        <h1 class="display-1">HISAB-KITAB</h1>
+                        <p class="lead">Digital way of Manage your Business & Personal ledgers </p>
                     </div>
                 </div>
             </div>
-        </script>
+        </div>
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col-6 customer-banner"> <img src="./img/customers.png" class="img-fluid" alt=""></div>
+                <div class="col-6 d-flex justify-content-center align-items-center">
+                    <div>
+                        <h1>Easy to manage customers</h1>
+                        <ul>
+                            <li>Add transaction for the customers</li>
+                            <li>Instance balanace check</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
 
     <!-- Profile View Template -->
     <script type="text/template" id="profile-template" src="profile_template.html">
-            <div class=" container mt-3">
-                <div class="bg-dark p-2 text-white mb-2">PERSONAL INFORMATION</div>
-                <div  id="info">
-                    <div class="row ">
-                        <div class="col-12 col-sm-2"><h4>Name:</h4></div>
-                        <div class="col-12 col-sm-10"><h4><%=name%></h4></div>
-                        <div class="col-12 col-sm-2"><h4>Email:</h4></div>
-                        <div class="col-12 col-sm-10"><h4><%=email%></h4></div>
-                        <div class="col-12 col-sm-2"><h4>Mobile Number:</h4></div>
-                        <div class="col-12 col-sm-10"></div>
+        <div class=" container mt-3">
+            <div class="bg-dark p-2 text-white mb-2">PERSONAL INFORMATION</div>
+            <div  id="info">
+                <div class="row ">
+                    <div class="col-12 col-sm-2"><h4>Name:</h4></div>
+                    <div class="col-12 col-sm-10"><h4><%=name%></h4></div>
+                    <div class="col-12 col-sm-2"><h4>Email:</h4></div>
+                    <div class="col-12 col-sm-10"><h4><%=email%></h4></div>
+                    <div class="col-12 col-sm-2"><h4>Mobile Number:</h4></div>
+                    <div class="col-12 col-sm-10"></div>
+                </div>
+            </div>
+            <div class="collapse container " id="changepass">
+                <p>Chnage Password</p>
+                <form class="w-50">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="old password">
                     </div>
-                </div>
-                <div class="collapse container " id="changepass">
-                    <p>Chnage Password</p>
-                    <form class="w-50">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="old password">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="new password">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="confirm password">
-                        </div>
-                        <button type="button" class="btn btn-success w-50 text-center">Save</button>
-                    </form>
-                </div>
-                <div class="collapse container w-50" id="editprofile">
-                    <p><strong>Personal Info</strong></p>
-                    <form>
-                        <div class="form-group">
-                            <label for="InputName">Name</label>
-                            <input type="text" class="form-control" id="InputName" placeholder="Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="InputEmail">Email</label>
-                            <input type="email" class="form-control" id="InputEmail" placeholder="Email">
-                        </div>
-                        <div class="form-group ">
-                            <label for="InputMob">Mobile NUmber</label>
-                            <input type="text" class="form-control" id="InputMob" placeholder="Mobile Number"> 
-                        </div>
-                        <button type="button" class="btn btn-success w-100">Update</button>
-                    </form>
-                </div>
-                <div class="collapse container" id="address">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><b>Address</b></h5>
-                            <p class="card-text">
-                                <h1>John Doe </h1>
-                                <p class="title">CEO & Founder, Example</p>
-                                <p>Harvard University</p>
-                            </p>
-                        </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="new password">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="confirm password">
+                    </div>
+                    <button type="button" class="btn btn-success w-50 text-center">Save</button>
+                </form>
+            </div>
+            <div class="collapse container w-50" id="editprofile">
+                <p><strong>Personal Info</strong></p>
+                <form>
+                    <div class="form-group">
+                        <label for="InputName">Name</label>
+                        <input type="text" class="form-control" id="InputName" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputEmail">Email</label>
+                        <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+                    </div>
+                    <div class="form-group ">
+                        <label for="InputMob">Mobile NUmber</label>
+                        <input type="text" class="form-control" id="InputMob" placeholder="Mobile Number"> 
+                    </div>
+                    <button type="button" class="btn btn-success w-100">Update</button>
+                </form>
+            </div>
+            <div class="collapse container" id="address">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Address</b></h5>
+                        <p class="card-text">
+                            <h1>John Doe </h1>
+                            <p class="title">CEO & Founder, Example</p>
+                            <p>Harvard University</p>
+                        </p>
                     </div>
                 </div>
             </div>
-        </script>
+        </div>
+    </script>
 
     <!-- Signup View Template -->
     <script type="text/template" id="signup-template">
-            <div class="container-fluid signup-container ">
-                <div class="row">
-                    <div class="col-md-6 p-0 ">
-                        <img class="signup-img" src="img/signup1.jpg" alt="">
-                    </div>
-                    <div class="col-md-6 p-0 d-flex justify-content-center align-items-center ">
-                        <div class="form-container">  
-                            <h3 class="mb-3">Register yourself with KhataBook</h3>
-                            <form action="">
-                                <div class="form-group">
-                                    <input id="user_name" type="text" class="form-control" placeholder="Username">
-                                </div>
-                                <div class="form-group">
-                                    <input id="email" type="text" class="form-control" placeholder="E-Mail">
-                                </div>
-                                <div class="form-group">
-                                    <input id="password" type="password" class="form-control" placeholder="Password">
-                                </div>
-                                <button class="btn btn-primary">Register</button>
-                            </form>
-                        </div>
+        <div class="container-fluid signup-container ">
+            <div class="row">
+                <div class="col-md-6 p-0 ">
+                    <img class="signup-img" src="img/signup1.jpg" alt="">
+                </div>
+                <div class="col-md-6 p-0 d-flex justify-content-center align-items-center ">
+                    <div class="form-container">  
+                        <h3 class="mb-3">Register yourself with KhataBook</h3>
+                        <form action="">
+                            <div class="form-group">
+                                <input id="user_name" type="text" class="form-control" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <input id="email" type="text" class="form-control" placeholder="E-Mail">
+                            </div>
+                            <div class="form-group">
+                                <input id="password" type="password" class="form-control" placeholder="Password">
+                            </div>
+                            <button class="btn btn-primary">Register</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </script>
+        </div>
+    </script>
 
     <!-- Login View Template -->
     <script type="text/template" id="login-template">
-            <div class="container-fluid signup-container ">
-                <div class="row">
-                    <div class="col-6 p-0 ">
-                        <img class="signup-img" src="img/login.jpg" alt="">
-                    </div>
-                    <div class="col-6 p-0 d-flex justify-content-center align-items-center ">
-                        <div class="form-container">  
-                            <h3 class="mb-3">Get into your KhataBook</h3>
-                            <form action="">
-                                <div class="form-group">
-                                    <input id="email" type="text" class="form-control" placeholder="E-Mail">
-                                </div>
-                                <div class="form-group">
-                                    <input id="password" type="password" class="form-control" placeholder="Password">
-                                </div>
-                                <button class="btn btn-primary">Login</button>
-                            </form>
-                        </div>
+        <div class="container-fluid signup-container ">
+            <div class="row">
+                <div class="col-6 p-0 ">
+                    <img class="signup-img" src="img/login.jpg" alt="">
+                </div>
+                <div class="col-6 p-0 d-flex justify-content-center align-items-center ">
+                    <div class="form-container">  
+                        <h3 class="mb-3">Get into your KhataBook</h3>
+                        <form action="">
+                            <div class="form-group">
+                                <input id="email" type="text" class="form-control" placeholder="E-Mail">
+                            </div>
+                            <div class="form-group">
+                                <input id="password" type="password" class="form-control" placeholder="Password">
+                            </div>
+                            <button class="btn btn-primary">Login</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </script>
+        </div>
+    </script>
 
     <!-- Main Customers View Template -->
     <script type="text/template" id="main-customers-template">
-            <div class="container">
-                <div class="row main-box">
-                    <div class="col-12 p-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h1 class="card-title text-success" >CUSTOMERS</h1>
-                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#create-customer">
-                                    Add Customer</button>
-                                <div class="collapse mt-3" id="create-customer">
-                                    <div class="card w-75 card-body create-customer text-align-right">
-                                        <form action="">
-                                            <div class="form-group">
-                                                <input id="name" type="text" class="form-control" placeholder="Name">
+        <div class="container">
+            <div class="row main-box">
+                <div class="col-12 p-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="card-title text-success" >CUSTOMERS</h1>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#create-customer">
+                                Add Customer</button>
+                            <div class="collapse mt-3" id="create-customer">
+                                <div class="card w-75 card-body create-customer text-align-right">
+                                    <form action="">
+                                        <div class="form-group">
+                                            <input id="name" type="text" class="form-control" placeholder="Name">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <input id="mob_num" type="text" class="form-control" placeholder="Mobile Number">
                                             </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <input id="mob_num" type="text" class="form-control" placeholder="Mobile Number">
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <input id="email" type="text" class="form-control" placeholder="E-Mail">
-                                                </div>
+                                            <div class="form-group col-md-6">
+                                                <input id="email" type="text" class="form-control" placeholder="E-Mail">
                                             </div>
-                                            <div class="form-group">
-                                                <textarea id="address" class="form-control" placeholder="Address"></textarea>
-                                            </div>
-                                            <div class="float-right">
-                                                <button class="btn btn-danger " type="button" data-toggle="collapse" data-target="#create-customer">
-                                                    Cancel</button>
-                                                <button id="create" class="btn btn-secondary">Create</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea id="address" class="form-control" placeholder="Address"></textarea>
+                                        </div>
+                                        <div class="float-right">
+                                            <button class="btn btn-danger " type="button" data-toggle="collapse" data-target="#create-customer">
+                                                Cancel</button>
+                                            <button id="create" class="btn btn-secondary">Create</button>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="card card-body mt-5 table-responsive"> 
-                                    <table class="table table-border table-striped text-center">
-                                        <thead class="thead-dark ">
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Mobile No.</th>
-                                                <th>Balance</th>
-                                                <th>Transaction</th>
-                                                <th>Summary</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="customers-list"></tbody>
-                                    </table>
-                                </div>
+                            </div>
+                            <div class="card card-body mt-5 table-responsive"> 
+                                <table class="table table-border table-striped text-center">
+                                    <thead class="thead-dark ">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Mobile No.</th>
+                                            <th>Balance</th>
+                                            <th>Transaction</th>
+                                            <th>Summary</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="customers-list"></tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </script>
+        </div>
+    </script>
 
     <!-- Customer View Template -->
     <script type="text/template" id="customer-template">
-            <td><%= model.get('customer_name') %></td>
-            <td><%= model.get('mobile_number') %></td>
-            <td><%= model.get('balance') %></td>
-            <td>
-                <button type="button" class="btn btn-danger" id="give">Give</button>
-                <button type="button" class="btn btn-success" id="take">Take</button>
-            </td>
-            <td><button class="btn btn-warning" id="summary" data-url="summary">Summary</button></td>  
-        </script>
+        <td><%= model.get('customer_name') %></td>
+        <td><%= model.get('mobile_number') %></td>
+        <td><%= model.get('balance') %></td>
+        <td>
+            <button type="button" class="btn btn-danger" id="give">Give</button>
+            <button type="button" class="btn btn-success" id="take">Take</button>
+        </td>
+        <td><button class="btn btn-warning" id="summary" data-url="summary">Summary</button></td>  
+    </script>
 
     <!-- Give Modal Template -->
     <script type="text/template" id="give-modal-template">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header bg-danger">
-                        <h5 class="modal-title" id="giveModalLongTitle">Debit</h5>
-                        <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body ">
-                        <h3><%= model.get('customer_name') %></h3>
-                        <input class="form-control mb-2" type="number" id="give-amount-<%=model.get('customer_id')%>" placeholder="amount">
-                        <textarea class="form-control" name="" placeholder="message" id="give-message-<%=model.get('customer_id')%>"></textarea>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
-                        <button type="button" id="give" data-dismiss="modal" class="btn btn-primary">Debit</button>
-                    </div>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title" id="giveModalLongTitle">Debit</h5>
+                    <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body ">
+                    <h3><%= model.get('customer_name') %></h3>
+                    <input class="form-control mb-2" type="number" id="give-amount-<%=model.get('customer_id')%>" placeholder="amount">
+                    <textarea class="form-control" name="" placeholder="message" id="give-message-<%=model.get('customer_id')%>"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+                    <button type="button" id="give" data-dismiss="modal" class="btn btn-primary">Debit</button>
                 </div>
             </div>
-        </script>
+        </div>
+    </script>
 
     <!-- Take Modal Template -->
     <script type="text/template" id="take-modal-template">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header bg-success">
-                        <h5 class="modal-title" id="takeModalLongTitle">Credit</h5>
-                        <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body ">
-                        <h3><%= model.get('customer_name') %></h3>
-                        <input class="form-control mb-2" type="number" id="take-amount-<%=model.get('customer_id')%>" placeholder="amount">
-                        <textarea class="form-control" name="" placeholder="message" id="take-message-<%=model.get('customer_id')%>"></textarea>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
-                        <button type="button" id="take" data-dismiss="modal" class="btn btn-primary">Credit</button>
-                    </div>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h5 class="modal-title" id="takeModalLongTitle">Credit</h5>
+                    <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body ">
+                    <h3><%= model.get('customer_name') %></h3>
+                    <input class="form-control mb-2" type="number" id="take-amount-<%=model.get('customer_id')%>" placeholder="amount">
+                    <textarea class="form-control" name="" placeholder="message" id="take-message-<%=model.get('customer_id')%>"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+                    <button type="button" id="take" data-dismiss="modal" class="btn btn-primary">Credit</button>
                 </div>
             </div>
-        </script>
+        </div>
+    </script>
 
-        <!-- Summary View Template -->
-        <script type="text/template" id="summary-template">
-            <div class="container p-3 my-3 border border-muted">
-                <h2 class="my-4 text-warning ml-4"> <b>Transaction Summary</b></h2>
-                <div class="row p-3 my-2 mx-2" style="box-shadow: 5px 5px 5px 5px #F0F0F0;">
-                    <div class="col-lg-6">
-                        <div class="row m-3">
-                            <div class="col-md-5"><h5>Name: </h5></div>
-                            <input type="text" id="lname" name="lname" class="ml-3 p-1" disabled value="<%= model.get('customer_name') %>">
-                        </div>
-                        <div class="row m-3">
-                            <div class="col-md-5"><h5>Mobile Number: </h5></div>
-                            <input type="text" id="lname" name="lname" class="ml-3 p-1" disabled value="<%= model.get('mobile_number') %>">
-                        </div>
-                        <div class="row m-3">
-                            <div class="col-md-5"><h5>E-Mail ID:</h5></div>
-                            <input type="text" id="lname" name="lname" class="ml-3 p-1" disabled value="<%= model.get('email') %>">
-                        </div>
-                    </div >
-                    <div class="col-lg-6">
-                        <div class="row m-3">
-                            <h5>Address: </h5>
-                            <textarea class="ml-3 w-75" disabled><%= model.get('address') %></textarea>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-7"></div>
-                            <div class="col-lg-4 mt-3 editbutton">
-                                <button class="btn btn-primary px-4 ml-5" id="edit">Edit</button>
-                            </div>
-                            <div class="col-lg-5 mt-3 row morebutton collapse">
-                                <button class="btn btn-warning mr-2">Update</button>
-                                <button class="btn btn-danger" id="cancel">Cancel</button>
-                            </div>
-                        </div>
+    <!-- Summary View Template -->
+    <script type="text/template" id="summary-template">
+        <div class="container p-3 my-3 border border-muted">
+            <h2 class="my-4 text-warning ml-4"> <b>Transaction Summary</b></h2>
+            <div class="row p-3 my-2 mx-2" style="box-shadow: 5px 5px 5px 5px #F0F0F0;">
+                <div class="col-lg-6">
+                    <div class="row m-3">
+                        <div class="col-md-5"><h5>Name: </h5></div>
+                        <input type="text" id="lname" name="lname" class="ml-3 p-1" disabled value="<%= model.get('customer_name') %>">
                     </div>
-                </div>
-                <div>
-                    <div class="card card-body mt-5 table-responsive"> 
-                        <table class="table table-border table-striped text-center">
-                            <thead class="thead-dark ">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Mobile No.</th>
-                                    <th>Balance</th>
-                                    <th>Transaction</th>
-                                    <th>Summary</th>
-                                </tr>
-                            </thead>
-                            <tbody class="customers-list"></tbody>
-                        </table>
+                    <div class="row m-3">
+                        <div class="col-md-5"><h5>Mobile Number: </h5></div>
+                        <input type="text" id="lname" name="lname" class="ml-3 p-1" disabled value="<%= model.get('mobile_number') %>">
+                    </div>
+                    <div class="row m-3">
+                        <div class="col-md-5"><h5>E-Mail ID:</h5></div>
+                        <input type="text" id="lname" name="lname" class="ml-3 p-1" disabled value="<%= model.get('email') %>">
+                    </div>
+                </div >
+                <div class="col-lg-6">
+                    <div class="row m-3">
+                        <h5>Address: </h5>
+                        <textarea class="ml-3 w-75" disabled><%= model.get('address') %></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-7"></div>
+                        <div class="col-lg-4 mt-3 editbutton">
+                            <button class="btn btn-primary px-4 ml-5" id="edit">Edit</button>
+                        </div>
+                        <div class="col-lg-5 mt-3 row morebutton collapse">
+                            <button class="btn btn-warning mr-2">Update</button>
+                            <button class="btn btn-danger" id="cancel">Cancel</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </script>
+            <div>
+                <div class="card card-body mt-5 table-responsive"> 
+                    <table class="table table-border table-striped text-center">
+                        <thead class="thead-dark ">
+                            <tr>
+                                <th>Name</th>
+                                <th>Mobile No.</th>
+                                <th>Balance</th>
+                                <th>Transaction</th>
+                                <th>Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody class="customers-list"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
