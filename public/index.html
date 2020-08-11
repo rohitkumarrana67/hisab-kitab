@@ -109,17 +109,8 @@
 
     <!-- Home View Template -->
     <script type="text/template" id="home-template">
-        <div class="jumbotron">
-            <div class="container">
-                <div class="row">
-                    <div class="col-4">
-                        <img src="./img/logo.png" alt="">
-                    </div>
-                    <div class="col-8">
-                        <h1 class="display-1">HISAB-KITAB</h1>
-                        <p class="lead">Digital way of Manage your Business & Personal ledgers </p>
-                    </div>
-                </div>
+        <div class="container mt-3">
+            <div class="jumbotron" id="banner">  
             </div>
         </div>
         <div class="container mb-5">
@@ -370,20 +361,20 @@
     <!-- Summary View Template -->
     <script type="text/template" id="summary-template">
         <div class="container p-3 my-3 border border-muted">
-            <h2 class="my-4 text-warning ml-4"> <b>Transaction Summary</b></h2>
+            <h2 class="my-4 text-warning ml-4"> <b>Customer Information</b></h2>
             <div class="row p-3 my-2 mx-2" style="box-shadow: 5px 5px 5px 5px #F0F0F0;">
                 <div class="col-lg-6">
                     <div class="row m-3">
                         <div class="col-md-5"><h5>Name: </h5></div>
-                        <input type="text" id="lname" name="lname" class="ml-3 p-1" disabled value="<%= model.get('customer_name') %>">
+                        <input type="text" id="name" name="lname" class="ml-3 p-1" disabled value="<%= model.get('customer_name') %>">
                     </div>
                     <div class="row m-3">
                         <div class="col-md-5"><h5>Mobile Number: </h5></div>
-                        <input type="text" id="lname" name="lname" class="ml-3 p-1" disabled value="<%= model.get('mobile_number') %>">
+                        <input type="text" id="mob" name="lname" class="ml-3 p-1" disabled value="<%= model.get('mobile_number') %>">
                     </div>
                     <div class="row m-3">
                         <div class="col-md-5"><h5>E-Mail ID:</h5></div>
-                        <input type="text" id="lname" name="lname" class="ml-3 p-1" disabled value="<%= model.get('email') %>">
+                        <input type="text" id="email" name="lname" class="ml-3 p-1" disabled value="<%= model.get('email') %>">
                     </div>
                 </div >
                 <div class="col-lg-6">
@@ -401,25 +392,51 @@
                             <button class="btn btn-danger" id="cancel">Cancel</button>
                         </div>
                     </div>
+                </div>    
+            </div>
+            <div class="container mt-4">
+                <h3 class="text-info">TRANSACTION DETAILS</h3>
+                <div id="transactions"> 
                 </div>
             </div>
-            <div>
-                <div class="card card-body mt-5 table-responsive"> 
-                    <table class="table table-border table-striped text-center">
-                        <thead class="thead-dark ">
-                            <tr>
-                                <th>Name</th>
-                                <th>Mobile No.</th>
-                                <th>Balance</th>
-                                <th>Transaction</th>
-                                <th>Summary</th>
-                            </tr>
-                        </thead>
-                        <tbody class="customers-list"></tbody>
-                    </table>
+        </div>   
+    </script>
+
+
+    <!--transaction template-->
+    <script type="text/template" id="transaction-template">
+        <div class="card mb-3">
+            <div class="row no-gutters ">
+                <div class="col-md-2">
+                    <img src="img/take.png" class="card-img" alt="...">
+                </div>
+                    <div class="col-md-10">
+                        <div class="card-body ">
+                            <div class="row">
+                                <div class="col-8">
+                                    <h5 class="card-title">Transition title</h5>
+                                </div>
+                                <div class="col-4">
+                                    <h5 class="text-right">1000.00</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="card-text">Transition message</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-warning btn-lg float-right">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
     </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -439,6 +456,7 @@
     <script src="js/models/transaction.js"></script>
     <script src="js/collections/users.js"></script>
     <script src="js/collections/customer.js"></script>
+    <script src="js//collections/transactions.js"></script>
     <script src="js/router.js"></script>
     <script src="js/views/landing_view.js"></script>
     <script src="js/views/signup_view.js"></script>
@@ -449,6 +467,7 @@
     <script src="js/views/summary_view.js"></script>
     <script src="js/views/give_modal_view.js"></script>
     <script src="js/views/take_modal_view.js"></script>
+    <script src="js/views/transaction_view.js"></script>
     <script src="js/main.js"></script>
 </body>
 
