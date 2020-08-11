@@ -25,7 +25,18 @@ var ProfileView = Backbone.View.extend({
     events: {
         'click #change_password': 'changepassword',
         'click #update_profile': 'updateprofile',
-        'click #collapse':'collapsepage'
+        'click #collapse':'collapsepage',
+        "click #edit":"editdetails",
+        "click #cancel":"cancelevent"
+    },
+    cancelevent:function(){
+        this.render()
+    },
+    editdetails: function(){
+        $(".editbutton").addClass("collapse")
+        $(".morebutton").addClass("show")
+        $("input").removeAttr('disabled')
+        $("textarea").removeAttr('disabled')
     },
     collapsepage:function(){
      $('.cpass').on('click',function(){
