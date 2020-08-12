@@ -42,3 +42,23 @@ footer{
   margin: 20px auto;
   box-shadow: 5px 5px 10px #F0F0F0;
 }
+
+#profile-container{
+    padding:5%;
+}
+#profile-container .img{
+    text-align:center;
+}
+#profile-container .details{
+    border-left:3px solid #ded4da;
+}
+#profile-container .details p{
+    font-size:15px;
+    font-weight:bold;
+}
+.avatar {
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+  }
