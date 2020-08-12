@@ -36,3 +36,8 @@ footer{
 .after-auth{
     display: none;
 }
+
+.transaction-box{
+  width: 75%;
+  margin: 20px auto;
+}
