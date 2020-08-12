@@ -3,6 +3,7 @@ var AppRouter = Backbone.Router.extend({
         '': 'homeView',
         'signup': 'signupView',
         'login': 'loginView',
+        'logout': 'logoutView',
         'profile': 'profileView',
         'customers': 'customersView',
         'customers/:customer_id/summary' : 'summaryView'
@@ -16,6 +17,22 @@ var AppRouter = Backbone.Router.extend({
         var login_view = new LoginView({
             el: '#content'
         });
+    },
+    logoutView: function () {
+        const user = new UserModel();
+        user.save(null, {
+            url: "http://localhost:3060/users/logout",
+            headers: { 'auth-token': localStorage.getItem('khata-token') },
+            success: function (response) {
+                console.log("ok");
+                localStorage.removeItem('khata-token');
+            },
+            error: function (error, response) {
+                console.log("not ok")
+                console.log(response)
+            }
+        })
+        router.navigate('', {trigger:true})
     },
     signupView: function () {
         var signup_view = new SignupView({

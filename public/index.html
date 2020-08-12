@@ -49,7 +49,7 @@
                     <li class="nav-item nav-link  after-auth" data-url="profile">
                         PROFILE
                     </li>
-                    <li class="nav-item nav-link after-auth" id="logout">LOGOUT</li>
+                    <li class="nav-item nav-link after-auth" data-url="logout">LOGOUT</li>
                 </ul>
             </div>
         </div>
@@ -409,7 +409,7 @@
                 <div class="col-md-5"><h5>E-Mail ID:</h5></div>
                 <input type="text" id="email" name="lname" class="ml-3 p-1" disabled value="<%= model.get('email') %>">
             </div>
-        </div >
+        </div>
         <div class="col-lg-6">
             <div class="row m-3">
                 <h5>Address: </h5>
@@ -454,6 +454,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </script>
 
     <!-- Transaction Edit Modal Template -->
