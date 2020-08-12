@@ -15,15 +15,12 @@ var LandingView = Backbone.View.extend({
     },
     render: function(){
         this.$el.parent().parent().find('#content').html(this.template())
-        console.log("on home screen")
         if (!localStorage.getItem('khata-token')) {
             $('.before-auth').show()
             $('.after-auth').hide()
-            console.log("no token")
         } else {
             $('.before-auth').hide()
             $('.after-auth').show()
-            console.log("token found")
         }
     }
 
