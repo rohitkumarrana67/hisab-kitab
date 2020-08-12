@@ -40,4 +40,5 @@ footer{
 .transaction-box{
   width: 75%;
   margin: 20px auto;
+  box-shadow: 5px 5px 10px black;
 }
