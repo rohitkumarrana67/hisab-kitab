@@ -5,6 +5,7 @@ var AppRouter = Backbone.Router.extend({
         'login': 'loginView',
         'profile': 'profileView',
         'customers': 'customersView',
+        'customers/:customer_id/summary' : 'summaryView'
     },
     homeView: function () {
         var landingView = new LandingView({
@@ -46,6 +47,12 @@ var AppRouter = Backbone.Router.extend({
             el: "#content"
         });
         customers_view.render();
+    },
+    summaryView : function (customer_id) {
+        var customer = new CustomerModel({
+            customer_id : customer_id
+        })
+        var view = new SummaryView({ model: customer, el: '#content' })
     }
 
 });
