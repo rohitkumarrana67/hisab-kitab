@@ -29,9 +29,8 @@ var CustomerView = Backbone.View.extend({
     },
 
     summaryView: function (e) {
-        var view = new SummaryView({ model: this.model, el: '#content' })
         var $target = $(e.target)
-        router.navigate($target.attr("data-url") + "/" + this.model.get('customer_id'), { trigger: true })
+        router.navigate("customers/" + this.model.get('customer_id') + "/" + $target.attr("data-url"), { trigger: true })
     },
 
     initialize: function () {

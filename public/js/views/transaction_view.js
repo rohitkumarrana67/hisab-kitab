@@ -1,4 +1,5 @@
 var TransactionView = Backbone.View.extend({
+    className : "transaction-box",
     model: TransactionModel,
     template: _.template($('#transaction-template').html()),
     initialize: function () {

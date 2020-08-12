@@ -362,37 +362,29 @@
     <script type="text/template" id="summary-template">
         <div class="container p-3 my-3 border border-muted">
             <h2 class="my-4 text-warning ml-4"> <b>Customer Information</b></h2>
-            <div class="row p-3 my-2 mx-2" style="box-shadow: 5px 5px 5px 5px #F0F0F0;">
+            <div class="row p-3 my-2 mx-2" style="box-shadow: 5px 5px 5px 5px #F0F0F0;" id="customer-info">
                 <div class="col-lg-6">
                     <div class="row m-3">
-                        <div class="col-md-5"><h5>Name: </h5></div>
-                        <input type="text" id="name" name="lname" class="ml-3 p-1" disabled value="<%= model.get('customer_name') %>">
+                        <div class="col-md-5"><h5>Name: </h5><p><%= model.get('customer_name') %></p></div>
                     </div>
                     <div class="row m-3">
-                        <div class="col-md-5"><h5>Mobile Number: </h5></div>
-                        <input type="text" id="mob" name="lname" class="ml-3 p-1" disabled value="<%= model.get('mobile_number') %>">
+                        <div class="col-md-5"><h5>Mobile Number: </h5><p><%= model.get('mobile_number') %></p></div>
                     </div>
                     <div class="row m-3">
-                        <div class="col-md-5"><h5>E-Mail ID:</h5></div>
-                        <input type="text" id="email" name="lname" class="ml-3 p-1" disabled value="<%= model.get('email') %>">
+                        <div class="col-md-5"><h5>E-Mail ID: </h5><p><%= model.get('email') %></p></div>
                     </div>
                 </div >
                 <div class="col-lg-6">
                     <div class="row m-3">
-                        <h5>Address: </h5>
-                        <textarea class="ml-3 w-75" disabled><%= model.get('address') %></textarea>
+                        <h5>Address: </h5><p><%= model.get('address') %></p>
                     </div>
                     <div class="row">
                         <div class="col-lg-7"></div>
                         <div class="col-lg-4 mt-3 editbutton">
-                            <button class="btn btn-primary px-4 ml-5" id="edit">Edit</button>
-                        </div>
-                        <div class="col-lg-5 mt-3 row morebutton collapse">
-                            <button class="btn btn-warning mr-2">Update</button>
-                            <button class="btn btn-danger" id="cancel">Cancel</button>
+                            <button class="btn btn-primary px-4 ml-5" id="edit-info">Edit</button>
                         </div>
                     </div>
-                </div>    
+                </div>
             </div>
             <div class="container mt-4">
                 <h3 class="text-info">TRANSACTION DETAILS</h3>
@@ -402,8 +394,38 @@
         </div>   
     </script>
 
+    <!-- Summary Customer Info Edit Template -->
+    <script type="text/template" id="customer-info-edit-template">
+        <div class="col-lg-6">
+            <div class="row m-3">
+                <div class="col-md-5"><h5>Name: </h5></div>
+                <input type="text" id="name" name="lname" class="ml-3 p-1" disabled value="<%= model.get('customer_name') %>">
+            </div>
+            <div class="row m-3">
+                <div class="col-md-5"><h5>Mobile Number: </h5></div>
+                <input type="text" id="mob" name="lname" class="ml-3 p-1" disabled value="<%= model.get('mobile_number') %>">
+            </div>
+            <div class="row m-3">
+                <div class="col-md-5"><h5>E-Mail ID:</h5></div>
+                <input type="text" id="email" name="lname" class="ml-3 p-1" disabled value="<%= model.get('email') %>">
+            </div>
+        </div >
+        <div class="col-lg-6">
+            <div class="row m-3">
+                <h5>Address: </h5>
+                <textarea class="ml-3 w-75" disabled><%= model.get('address') %></textarea>
+            </div>
+            <div class="row">
+                <div class="col-lg-7"></div>
+                <div class="col-lg-5 mt-3 row">
+                    <button class="btn btn-warning mr-2" id="update-info">Update</button>
+                    <button class="btn btn-danger" id="cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </script>
 
-    <!--transaction template-->
+    <!--Transaction Template-->
     <script type="text/template" id="transaction-template">
         <div class="card mb-3">
             <div class="row no-gutters ">
@@ -434,8 +456,7 @@
             </div>
     </script>
 
-
-    <!-- Transaction edit Modal Template -->
+    <!-- Transaction Edit Modal Template -->
     <script type="text/template" id="transaction-edit-modal-template">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -446,8 +467,8 @@
                     </button>
                 </div>
                 <div class="modal-body ">
-                    <input class="form-control mb-2" type="number" id="transaction-amount-<%=model.get('customer_id')%>" placeholder="amount">
-                    <textarea class="form-control" name="" placeholder="message" id="transaction-message-<%=model.get('customer_id')%>"></textarea>
+                    <input class="form-control mb-2" type="number" id="transaction-amount-<%=model.get('customer_id')%>" placeholder="Amount">
+                    <textarea class="form-control" name="" placeholder="Message" id="transaction-message-<%=model.get('customer_id')%>"></textarea>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
