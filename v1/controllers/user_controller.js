@@ -1,4 +1,4 @@
-const { createValidator, loginValidator , updateValidator ,passwordValidator} = require("../validators/user_validators");
+const { createValidator, loginValidator , updateValidator } = require("../validators/user_validators");
 const errorBuilder = require("../entity_builders/error_builder");
 const Service = require("../services/user_service");
 const Builder = require("../entity_builders/user_builder");
@@ -72,11 +72,5 @@ module.exports = {
         }).catch(err => {
             res.status(500).send(err)
         })
-    },
-
-    changePassword : async (req,res) =>{
-        var data = await passwordValidator(req.body)
-        const UserService = new Service(req.body,req.user)
-        UserService.changePassword()
     }
 }
