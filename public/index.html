@@ -486,8 +486,8 @@
                     </button>
                 </div>
                 <div class="modal-body ">
-                    <input class="form-control mb-2" type="number" id="transaction-amount-<%=model.get('customer_id')%>" placeholder="Amount">
-                    <textarea class="form-control" name="" placeholder="Message" id="transaction-message-<%=model.get('customer_id')%>"></textarea>
+                    <input class="form-control mb-2" type="number" id="transaction-amount-<%=model.get('customer_id')%>" placeholder="Amount" value="<%=model.get('amount')%>">
+                    <textarea class="form-control" name="" placeholder="Message" id="transaction-message-<%=model.get('customer_id')%>"><%=model.get('message')%></textarea>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
