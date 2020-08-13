@@ -29,7 +29,7 @@
                         <a class="nav-link" href="#">Home </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="#customers">Customers</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="#">Help</a>
@@ -40,16 +40,10 @@
                 </ul>
 
                 <ul class="navbar-nav my-2 my-lg-0">
-                    <li class="nav-item nav-link before-auth" data-url="signup">
-                        REGISTER
-                    </li>
-                    <li class="nav-item nav-link before-auth" data-url="login">
-                        LOGIN
-                    </li>
-                    <li class="nav-item nav-link  after-auth" data-url="profile">
-                        PROFILE
-                    </li>
-                    <li class="nav-item nav-link after-auth" id="logout">LOGOUT</li>
+                    <li class="nav-item nav-link before-auth" data-url="signup">REGISTER</li>
+                    <li class="nav-item nav-link before-auth" data-url="login">LOGIN</li>
+                    <li class="nav-item nav-link  after-auth" data-url="profile">PROFILE</li>
+                    <li class="nav-item nav-link after-auth" data-url="logout">LOGOUT</li>
                 </ul>
             </div>
         </div>
@@ -234,7 +228,7 @@
                 <div class="col-md-6 p-0 d-flex justify-content-center align-items-center ">
                     <div class="form-container">  
                         <h3 class="mb-3">Register yourself with KhataBook</h3>
-                        <form action="">
+                        <form action="" id="signup-form">
                             <div class="form-group">
                                 <input id="user_name" type="text" class="form-control" placeholder="Username">
                             </div>
@@ -262,7 +256,7 @@
                 <div class="col-6 p-0 d-flex justify-content-center align-items-center ">
                     <div class="form-container">  
                         <h3 class="mb-3">Get into your KhataBook</h3>
-                        <form action="">
+                        <form action="" id="login-form">
                             <div class="form-group">
                                 <input id="email" type="text" class="form-control" placeholder="E-Mail">
                             </div>
@@ -271,6 +265,7 @@
                             </div>
                             <button class="btn btn-primary">Login</button>
                         </form>
+                        <p class="my-2">New User? <a href="#signup">Register Here</a></p>
                     </div>
                 </div>
             </div>
@@ -442,7 +437,7 @@
                 <div class="col-md-5"><h5>E-Mail ID:</h5></div>
                 <input type="text" id="email" name="lname" class="ml-3 p-1" disabled value="<%= model.get('email') %>">
             </div>
-        </div >
+        </div>
         <div class="col-lg-6">
             <div class="row m-3">
                 <h5>Address: </h5>
@@ -487,6 +482,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </script>
 
     <!-- Transaction Edit Modal Template -->
