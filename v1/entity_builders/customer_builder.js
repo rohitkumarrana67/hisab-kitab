@@ -1,4 +1,5 @@
-const utility = require("../../core/utility_functions")
+const utility = require("../../core/utility_functions");
+const { func } = require("joi");
 
 module.exports = CustomerEntityBuilder = function () {
     
@@ -25,4 +26,14 @@ CustomerEntityBuilder.prototype.getCustomers = async function (req_data) {
         res_data.push(entity_obj);
     };
     return res_data;
+}
+
+CustomerEntityBuilder.prototype.getCustomerById = function (req_data) {
+ const {customer_name,email,mobile_number,address}=req_data;
+ return {customer_name,email,mobile_number,address};
+
+}
+CustomerEntityBuilder.prototype.updateCustomerById = function(req_data){
+    const {customer_name,email,mobile_number,address}=req_data;
+    return {customer_name,email,mobile_number,address};
 }

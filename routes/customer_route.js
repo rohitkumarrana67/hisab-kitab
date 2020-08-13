@@ -4,10 +4,10 @@ const router = express.Router();
 const Auth = require("../core/authenticator");
 
 router.post("/users/customers", Auth, customerController.createCustomer);
-router.get("/users/customers", Auth, customerController.getCustomers);
-router.get("/users/customers/:id", customerController.getCustomerById);
-router.patch("/users/customers", customerController.updateCustomerById);
-router.delete("/users/customers/id", customerController.deleteCustomerByid);
-router.delete("/users/customser", customerController.deleteAllCustomer);
+router.get("/users/customers", Auth,customerController.getCustomers);
+router.get("/users/customers/:id",Auth, customerController.getCustomerById);
+router.patch("/users/customers/:id",Auth, customerController.updateCustomerById);
+router.delete("/users/customers/:id",Auth, customerController.deleteCustomerByid);
+router.delete("/users/customser",Auth, customerController.deleteAllCustomer);
 
 module.exports = router;
