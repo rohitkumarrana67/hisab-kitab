@@ -5,7 +5,7 @@ var LoginView = Backbone.View.extend({
         this.render();
     },
     events: {
-        'submit': 'login'
+        'submit #login-form': 'login'
     },
     login: function (e) {
         e.preventDefault();
@@ -22,7 +22,6 @@ var LoginView = Backbone.View.extend({
             success: function (response) {
                 localStorage.setItem('khata-token', response.toJSON().token);
                 window.location = "#customers";
-
             },
             error: function (err, response) {
                 console.log(response);

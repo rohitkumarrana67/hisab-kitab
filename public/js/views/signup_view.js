@@ -1,12 +1,11 @@
 var SignupView = Backbone.View.extend({
     model: UserModel,
-    collection: UserCollection,
     template: _.template($('#signup-template').html()),
     initialize: function () {
         this.render();
     },
     events: {
-        'submit': 'createUser'
+        'submit #signup-form': 'createUser'
     },
     createUser: function (e) {
         e.preventDefault();
