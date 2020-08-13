@@ -22,12 +22,12 @@ var AppRouter = Backbone.Router.extend({
             headers: { 'auth-token': localStorage.getItem('khata-token') },
             success: function (response) {
                 localStorage.removeItem('khata-token')
+                window.location = ''
             },
             error: function (error, response) {
                 console.log(response)
             }
         })
-        router.navigate('', {trigger:true})
     },
     signupView: function () {
         var signup_view = new SignupView({ el: "#content" })

@@ -43,10 +43,8 @@ const UserSchema = new Schema({
         type: Buffer
     },
     tokens: [{
-        token: {
             type: String,
             required: true
-        }
     }]
 }, { timestamps: { createdAt: 'created_at', updatedAt: "updated_at" } });
 
@@ -54,7 +52,7 @@ const UserSchema = new Schema({
 UserSchema.methods.generateAuthToken = async function () {
     const user = this;
     const token = jwt.sign({ user_id: user.user_id }, process.env.JWT_SECRET);
-    user.tokens = user.tokens.concat({ token });
+    user.tokens = await user.tokens.concat(token);
     await user.save();
     return token;
 };
