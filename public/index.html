@@ -134,56 +134,38 @@
         <div class="container" id="profile-container">
             <div class="row">
               <div class="col-sm-2 img">
-                <img src="img/img_avatar .png" alt="Avatar" class="avatar"> <br>
-                <a class=" nav-link editprofile">
-                  Edit Profile
-                    </a>
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar"> <br>
               </div>
-              <div class="col-md-6 details">
-                <blockquote>
-                  <h5 class="text-primary">Personal Infomation</h5>
-                  <div>
-                    <ul class="container">
-                      <li>Name : <span><%= name %></span></li>
-                      <li>Email : <span><%= email %></span></li>
-                      <li>Mobile Number : <span>1234567890</span></li>
-                  </ul>
-                  </div>
-                  <div id="eprofile">
-                    <p class="text-primary"><strong>Edit Profile </strong></p>
-                    <form>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label for="InputName">Name</label>
-                            <input type="text" class="form-control" id="InputName" placeholder="Name" value= <%=name %> >
-                          </div>
+              <div class="col-md-8 details">
+                <div class="container ">
+                    <h2 class="my-4 text-warning ml-4"> <b>Personal Information</b></h2>
+                    <div class="row " id="profile-info">
+                        <div class="col-lg-6">
+                                <h5>Name: </h5><p></p>
+                            </div>
+                            <div class="col-lg-6">
+                                <h5>Mobile Number: </h5><p></p>
+                            </div>                            
                         </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label for="InputEmail">Email</label>
-                            <input type="email" class="form-control" id="InputEmail" placeholder="Email" value= <%=email %>>
+                    </div>
+                     <div class="row"> 
+                         <div class="col-md-6 ml-3">          
+                          <h5>E-Mail ID: </h5><p></p>
+                         </div>
+                     </div>
+                            <div class="row ml-3">
+                                <h5 >Address: </h5><p></p>
+                            </div>
+                            <div class="row">
+                                    <button class="btn btn-primary ml-auto" id="edit-info">Edit</button>
+                                </div>
+                            </div>
                         </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group ">
-                            <label for="InputMob">Mobile NUmber</label>
-                            <input type="text" class="form-control" id="InputMob" placeholder="Mobile Number"> 
-                        </div>
-                        </div>
-                      </div>
-                      <button type="button" class="btn btn-success w-50" id="update_profile">Update</button>
-                   </form>
-                  </div>
-              </div>
-            </div>
-            <div class="row">
+            <div class="row mt-2">
               <div class="col-sm-2">
                 <h5 class="text-primary pl-3">Change Password</h5>
               </div>
-              <div class="col-md-6 ">
+              <div class="col-md-9 ">
                 <blockquote>
                   <form>
                     <div class="row">
@@ -213,7 +195,35 @@
     
           </div>
     </script>
-
+    <script type="text/template" id="profile-info-edit-template">
+        <div class="col-lg-6">
+            <div class="row m-3">
+                <div class="col-md-5"><h5>Name: </h5></div>
+                <input type="text" id="name" name="lname" class="ml-3 p-1" disabled value="<%= name %>">
+            </div>
+            <div class="row m-3">
+                <div class="col-md-5"><h5>Mobile Number: </h5></div>
+                <input type="text" id="mob" name="lname" class="ml-3 p-1" disabled value="<%=mobile_number %>">
+            </div>
+            <div class="row m-3">
+                <div class="col-md-5"><h5>E-Mail ID:</h5></div>
+                <input type="text" id="email" name="lname" class="ml-3 p-1" disabled value="<%= email %>">
+            </div>
+        </div >
+        <div class="col-lg-6">
+            <div class="row m-3">
+                <h5>Address: </h5>
+                <textarea class="ml-3 w-75" disabled><%= address %></textarea>
+            </div>
+            <div class="row">
+                <div class="col-lg-7"></div>
+                <div class="col-lg-5 mt-3 row">
+                    <button class="btn btn-warning mr-2" id="update-info">Update</button>
+                    <button class="btn btn-danger" id="cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </script>
     <!-- Signup View Template -->
     <script type="text/template" id="signup-template">
         <div class="container-fluid signup-container ">
