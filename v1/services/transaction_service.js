@@ -21,3 +21,8 @@ TransactionService.prototype.getBalance = async function () {
     const dispatcher_data = await this.disaptcher.getBalance()
     return this.entity_builder.buildBalance(dispatcher_data)
 }
+
+TransactionService.prototype.updateTransaction = async function () {
+    const dispatcher_data = await this.disaptcher.updateTransaction()
+    return this.entity_builder.buildBalance(dispatcher_data)
+}

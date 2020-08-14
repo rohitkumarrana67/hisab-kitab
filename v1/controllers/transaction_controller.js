@@ -54,5 +54,23 @@ module.exports = {
         .catch( error => {
             errorBuilder(error).then( err => { res.status(err.code).send(err.body) })
         })
+    },
+
+    updateTransaction : (req, res) => {
+        requestValidator.updateRequestValidator(req.params, req.body)
+        .then( validated_data => {
+            const req_data = {
+                params : validated_data[0].value,
+                body : validated_data[1].value
+            }
+            const transaction_service = new TransactionService(req_data, req.user.user_id)
+            return transaction_service.updateTransaction()
+        })
+        .then( data => {
+            res.status(200).send(data)
+        })
+        .catch( error => {
+            errorBuilder(error).then( err => { res.status(err.code).send(err.body) })
+        })
     }
 }

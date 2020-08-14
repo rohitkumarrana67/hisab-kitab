@@ -1,4 +1,4 @@
-const { createValidator, loginValidator , updateValidator } = require("../validators/user_validators");
+const { createValidator, loginValidator, updateValidator, updatePasswordValidator } = require("../validators/user_validators");
 const errorBuilder = require("../entity_builders/error_builder");
 const Service = require("../services/user_service");
 const Builder = require("../entity_builders/user_builder");
@@ -64,7 +64,7 @@ module.exports = {
         });
     },
 
-    update: async (req,res) => {
+    update: async (req, res) => {
         var data = await updateValidator(req.body)
         const UserService = new Service(data, req.user)
         UserService.update().then(data => {
@@ -72,5 +72,19 @@ module.exports = {
         }).catch(err => {
             res.status(500).send(err)
         })
+    },
+
+    updatePassword: (req, res) => {
+        updatePasswordValidator(req.body).then(data => {
+            const UserService = new Service(data, req.user);
+            return UserService.updatePassword();
+        }).then(data => {
+            res.status(201).send(data);
+        }).catch(error => {
+            errorBuilder(error).then((error) => {
+                res.status(error.code).send(error.body)
+            });
+        })
+
     }
 }

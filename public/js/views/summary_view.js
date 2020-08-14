@@ -3,14 +3,7 @@ var SummaryView = Backbone.View.extend({
     collection: transaction_collection,
     template: _.template($('#summary-template').html()),
     initialize: function (data) {
-        this.model.fetch({
-            url : "http://localhost:3060/users/customers/" + data.model.get('customer_id'),
-            headers: { 'auth-token': localStorage.getItem('khata-token') },
-            success: response => {
-                this.model = new CustomerModel(response)
-            }
-        })
-        this.render()
+        this.render(data.model)
     },
     events: {
         "click #edit-info": "editDetails",
@@ -22,12 +15,20 @@ var SummaryView = Backbone.View.extend({
         this.$el.find('#customer-info').html(edit_template({model : this.model}))
     },
     cancelEvent: function () {
-        this.render()
+        this.render(this.model)
     },
     updateDetails: function () {
         console.log("updated")
     },
-    render: function () {
+    render: async function (data) {
+        await data.fetch({
+            url : "http://localhost:3060/users/customers/" + data.get('customer_id'),
+            headers: { 'auth-token': localStorage.getItem('khata-token') },
+            success: response => {
+                this.model = new CustomerModel(response.toJSON())
+            }
+        })
+
         this.$el.html(this.template({ model: this.model }))
         var customer_id = this.model.get('customer_id')
         var $transactions_list = $("#transactions")
@@ -42,7 +43,6 @@ var SummaryView = Backbone.View.extend({
             error: function (err, response) {
                 console.log(response)
             }
-
         })
     }
 })

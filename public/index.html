@@ -42,7 +42,7 @@
                 <ul class="navbar-nav my-2 my-lg-0">
                     <li class="nav-item nav-link before-auth" data-url="signup">REGISTER</li>
                     <li class="nav-item nav-link before-auth" data-url="login">LOGIN</li>
-                    <li class="nav-item nav-link  after-auth" data-url="profile">PROFILE</li>
+                    <li class="nav-item nav-link after-auth" data-url="profile">PROFILE</li>
                     <li class="nav-item nav-link after-auth" data-url="logout">LOGOUT</li>
                 </ul>
             </div>
@@ -189,6 +189,8 @@
     
           </div>
     </script>
+
+    <!-- Profile Edit View Template -->
     <script type="text/template" id="profile-info-edit-template">
         <div class="col-lg-6">
             <div class="row m-3">
@@ -218,6 +220,7 @@
             </div>
         </div>
     </script>
+
     <!-- Signup View Template -->
     <script type="text/template" id="signup-template">
         <div class="container-fluid signup-container ">
@@ -502,8 +505,8 @@
                     </button>
                 </div>
                 <div class="modal-body ">
-                    <input class="form-control mb-2" type="number" id="transaction-amount-<%=model.get('customer_id')%>" placeholder="Amount" value="<%=model.get('amount')%>">
-                    <textarea class="form-control" name="" placeholder="Message" id="transaction-message-<%=model.get('customer_id')%>"><%=model.get('message')%></textarea>
+                    <input class="form-control mb-2" type="number" id="transaction-amount-<%=model.get('transaction_id')%>" placeholder="Amount" value="<%=model.get('amount')%>">
+                    <textarea class="form-control" name="" placeholder="Message" id="transaction-message-<%=model.get('transaction_id')%>"><%=model.get('message')%></textarea>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
