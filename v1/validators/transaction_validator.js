@@ -34,8 +34,25 @@ const createEntryValidator = async function (params, body) {
     ])
 }
 
+const updateRequestValidator = async function (params, body) {
+    const params_schema = Joi.object({
+        transaction_id : Joi.string().guid({version:"uuidv4"}).required()
+    })
+
+    const body_schema = Joi.object({
+        amount : Joi.number().required(),
+        message : Joi.string().required()
+    }).options({abortEarly: false})
+
+    return await Promise.all([
+        params_schema.validate(params, {convert:true}),
+        body_schema.validate(body, {convert:true})
+    ])
+}
+
 module.exports = {
     indexRequestValidator,
     createEntryValidator,
-    balanceRequestValidator
+    balanceRequestValidator,
+    updateRequestValidator
 }

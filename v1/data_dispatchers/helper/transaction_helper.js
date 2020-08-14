@@ -1,6 +1,6 @@
 const utility = require("../../../core/utility_functions")
 
-async function createRequestObject(body, params, user_id){
+async function getCreateObject(body, params, user_id){
     const id = params.id
     const type = params.type
     const req = {
@@ -13,6 +13,15 @@ async function createRequestObject(body, params, user_id){
     return req
 }
 
+function getUpdateObject(body){
+    const update_obj = {$set : {}}
+    for(key of Object.keys(body)){
+        update_obj['$set'][key] = body[key]
+    }
+    return update_obj
+}
+
 module.exports = {
-    createRequestObject
+    getCreateObject,
+    getUpdateObject
 }

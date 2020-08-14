@@ -22,13 +22,23 @@ const updateValidator = async function (req_data) {
         name: Joi.string().required(),
         email: Joi.string().email({ tlds: { allow: false } }).required(),
         address: Joi.string().required(),
-        mobile_number : Joi.number()
+        mobile_number: Joi.number()
     });
     return await schema.validateAsync(req_data);
+}
+
+const updatePasswordValidator = async function (req_data) {
+
+    const schema = Joi.object({
+        current_password: Joi.string().min(7).required(),
+        new_password: Joi.string().min(7).required()
+    })
+    return await schema.validateAsync(req_data)
 }
 
 module.exports = {
     createValidator,
     loginValidator,
-    updateValidator
+    updateValidator,
+    updatePasswordValidator
 }

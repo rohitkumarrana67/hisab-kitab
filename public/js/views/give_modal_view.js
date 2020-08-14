@@ -18,13 +18,13 @@ var GiveModalView = Backbone.View.extend({
             amount,
             message
         })
-        console.log(transaction)
+
         var self = this
         transaction.save(null, {
             url: `http://localhost:3060/users/customer/${customer_id}/give`,
             headers: { 'auth-token': localStorage.getItem('khata-token') },
             success: function (response) {
-                self.model.set('balance', transaction.get('balance'))
+                self.model.set('amount', transaction.get('balance'))
             },
             error: function (error, response) {
                 console.log(response);
@@ -33,7 +33,6 @@ var GiveModalView = Backbone.View.extend({
         this.removeFromDOM()
     },
     removeFromDOM: function () {
-        console.log("hello");
         $('#add-users-modal').remove();
     },
     template: _.template($('#give-modal-template').html()),
