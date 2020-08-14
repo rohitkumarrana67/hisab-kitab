@@ -4,6 +4,7 @@ var TransactionView = Backbone.View.extend({
     model: TransactionModel,
     template: _.template($('#transaction-template').html()),
     initialize: function () {
+        this.model.on("change", this.render, this)
     },
     events: {
         "click #edit": "editTransaction"
@@ -14,6 +15,7 @@ var TransactionView = Backbone.View.extend({
         $(transaction_edit_modal_view.el).modal('show')
     },
     render: function () {
+        console.log(this.model)
         this.$el.html(this.template({ model: this.model }))
         return this
     }
