@@ -33,6 +33,11 @@ footer{
     box-shadow: 2px 2px 20px black;
 }
 
+.before-auth, .after-auth
+{
+    cursor: pointer;
+}
+
 .after-auth{
     display: none;
 }
