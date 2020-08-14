@@ -1,4 +1,4 @@
-const { createValidator, loginValidator } = require("../validators/user_validators");
+const { createValidator, loginValidator , updateValidator } = require("../validators/user_validators");
 const errorBuilder = require("../entity_builders/error_builder");
 const Service = require("../services/user_service");
 const Builder = require("../entity_builders/user_builder");
@@ -30,6 +30,7 @@ module.exports = {
             })
         })
     },
+
     logout: async (req, res) => {
         try {
             req.user.tokens = req.user.tokens.filter((token) => {
@@ -45,11 +46,13 @@ module.exports = {
         }
 
     },
+
     getProfile: (req, res) => {
         const UserBuilder = new Builder();
         const res_data = UserBuilder.userProfile(req.user);
         res.status(201).send(res_data);
     },
+
     setAvatar: (req, res) => {
         req.user.avatar = req.file.buffer;
         req.user.save().then(data => {
@@ -59,5 +62,15 @@ module.exports = {
                 res.status(error.code).send(error.body)
             });
         });
+    },
+
+    update: async (req,res) => {
+        var data = await updateValidator(req.body)
+        const UserService = new Service(data, req.user)
+        UserService.update().then(data => {
+            res.status(200).send(data)
+        }).catch(err => {
+            res.status(500).send(err)
+        })
     }
 }
