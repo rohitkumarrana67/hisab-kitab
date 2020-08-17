@@ -263,7 +263,7 @@
                             <div class="form-group">
                                 <input id="email" type="text" class="form-control" placeholder="E-Mail">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group password">
                                 <input id="password" type="password" class="form-control" placeholder="Password">
                             </div>
                             <div class="text-danger m-1" id="error">
@@ -436,21 +436,21 @@
         <div class="col-lg-6">
             <div class="row m-3">
                 <div class="col-md-5"><h5>Name: </h5></div>
-                <input type="text" id="name" name="lname" class="ml-3 p-1" disabled value="<%= model.get('customer_name') %>">
+                <input type="text" id="name" name="lname" class="ml-3 p-1" value="<%= model.get('customer_name') %>">
             </div>
             <div class="row m-3">
                 <div class="col-md-5"><h5>Mobile Number: </h5></div>
-                <input type="text" id="mob" name="lname" class="ml-3 p-1" disabled value="<%= model.get('mobile_number') %>">
+                <input type="text" id="mob" name="lname" class="ml-3 p-1" value="<%= model.get('mobile_number') %>">
             </div>
             <div class="row m-3">
                 <div class="col-md-5"><h5>E-Mail ID:</h5></div>
-                <input type="text" id="email" name="lname" class="ml-3 p-1" disabled value="<%= model.get('email') %>">
+                <input type="text" id="email" name="lname" class="ml-3 p-1" value="<%= model.get('email') %>">
             </div>
         </div>
         <div class="col-lg-6">
             <div class="row m-3">
                 <h5>Address: </h5>
-                <textarea class="ml-3 w-75" disabled><%= model.get('address') %></textarea>
+                <textarea class="ml-3 w-75" id="address"><%= model.get('address') %></textarea>
             </div>
             <div class="row">
                 <div class="col-lg-7"></div>
