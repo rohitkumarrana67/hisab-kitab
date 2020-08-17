@@ -40,7 +40,7 @@ var AppRouter = Backbone.Router.extend({
         } else {
             $('.before-auth').hide()
             $('.after-auth').show()
-            var profile_view = new ProfileView({ el: "#content" })
+            var profile_view = new ProfileView({el: '#content' })
         }
     },
     customersView: function () {

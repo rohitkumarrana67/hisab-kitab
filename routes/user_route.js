@@ -11,7 +11,7 @@ router.post('/logout', Auth, userController.logout);
 router.get("/profile", Auth, userController.getProfile)
 router.patch("/password", Auth, userController.updatePassword)
 router.post("/avatar", Auth, avatar.single('upload'), userController.setAvatar, avatarError);
-router.patch("/update", Auth, userController.update)
+router.patch("/", Auth, userController.update)
 // router.get("/:userid",userController.readUser)
 // router.delete("/:userid",userController.deleteUser)
 
