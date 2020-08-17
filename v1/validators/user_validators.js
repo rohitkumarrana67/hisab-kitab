@@ -21,7 +21,7 @@ const updateValidator = async function (req_data) {
     const schema = Joi.object({
         name: Joi.string().required(),
         email: Joi.string().email({ tlds: { allow: false } }).required(),
-        address: Joi.string().required(),
+        address: Joi.string(),
         mobile_number: Joi.number()
     });
     return await schema.validateAsync(req_data);
