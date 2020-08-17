@@ -125,97 +125,164 @@
 
     <!-- Profile View Template -->
     <script type="text/template" id="profile-template">
-        <div class="container" id="profile-container">
-            <div class="row">
-              <div class="col-sm-2 img">
-                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar"> <br>
-              </div>
-              <div class="col-md-8 details">
-                <div class="container ">
-                    <h2 class="my-4 text-warning ml-4"> <b>Personal Information</b></h2>
-                    <div class="row " id="profile-info">
-                        <div class="col-lg-6">
-                                <h5>Name: </h5><p></p>
-                            </div>
-                            <div class="col-lg-6">
-                                <h5>Mobile Number: </h5><p></p>
-                            </div>                            
-                        </div>
-                    </div>
-                     <div class="row"> 
-                         <div class="col-md-6 ml-3">          
-                          <h5>E-Mail ID: </h5><p></p>
-                         </div>
-                     </div>
-                            <div class="row ml-3">
-                                <h5 >Address: </h5><p></p>
-                            </div>
-                            <div class="row">
-                                    <button class="btn btn-primary ml-auto" id="edit-info">Edit</button>
-                                </div>
-                            </div>
-                        </div>
-            <div class="row mt-2">
-              <div class="col-sm-2">
-                <h5 class="text-primary pl-3">Change Password</h5>
-              </div>
-              <div class="col-md-9 ">
-                <blockquote>
-                  <form>
+        <div class="container my-5">
+            <h1 class="text-primary text-center">Profile</h1>
+            <div class="row justify-content-center">
+                <div class="col-md-10 card p-4">
                     <div class="row">
-                      <div class="col-md-6">                  
-                        <div class="form-group">
-                          <input type="text" class="form-control" placeholder="old password" id="oldpass">
+                        <div class="col-12 col-md-3 ">
+                            <img src="img/give.png" class="img-fluid rounded" alt="">
+                            <button class="btn btn-warning btn-block mt-4" id="update-avatar">Update</button>
                         </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <input type="text" class="form-control" placeholder="new password" id="newpass">
-                          </div>
-                      </div>
+                        <div class="col-12 col-md-9" id="profile-info">
+                        </div>
                     </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <input type="text" class="form-control" placeholder="confirm password" id="confirmpass">
-                      </div>
-                      </div>
-                    </div>
-    
-                    <button type="button" class="btn btn-success w-50 text-center" id="change_password">Save</button>
-                  </form>
-              </div>
+                </div>
             </div>
-    
-          </div>
+            <div class="row justify-content-center my-2">
+                <div class="card card-body col-md-10">
+                    <h5 class="text-success">Update Password</h5>
+                    <div class="row">
+                        <div class="col-md-4"><input type="password" class="form-control" id="current-password" placeholder="Current Password"></div>
+                        <div class="col-md-4"><input type="password" class="form-control" id="new-password" placeholder="New Password"></div>
+                        <div class="col-md-4"><input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password"></div>
+                    </div>
+                    <div class="row mt-3" >
+                        <div class="col-10">
+                          <span class="text-danger" style="display:none" id="updated-successfully">Password successfully updated</span>
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary btn-block" id="update-password">Update</button>
+                        </div>
+                        
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </script>
+
+    <!--Initial profile Template-->
+    <script type="text/template" id="initial-profile-template">
+       <div class="row my-1">
+            <div class="col-md-3 ">
+                <h5>Name:</h5>
+            </div>
+            <div class="col-md-9">
+                <h5><%= model.get('name')%></h5>
+            </div>
+        </div>
+        <div class="row my-1">
+            <div class="col-md-3">
+                <h5>Email:</h5>
+            </div>
+            <div class="col-md-9">
+                <h5><%= model.get('email')%></h5>
+            </div>
+        </div>
+        <div class="row my-1">
+            <div class="col-md-3 ">
+                <h5>Mob:</h5>
+            </div>
+            <div class="col-md-9">
+                <% if(model.get('mobile_number')){%>
+                    <h5><%= model.get('mobile_number')%></h5>
+                <%}else{%>
+                    <h6> Please update mobile number </h6>
+                <%}%>
+            </div>
+        </div>
+        <div class="row my-1">
+            <div class="col-md-3">
+                <h5>Address:</h5>
+            </div>
+            <div class="col-md-9">
+                <% if(model.get('address')){%>
+                    <h5><%= model.get('address')%></h5>
+                <%}else{%>
+                    <h6> Please update address </h6>
+                <%}%>
+            </div>
+        </div>
+        <div class="row mt-2" >
+            <div class="col-9"></div>
+            <div class="col-3">
+                <button class="btn btn-primary btn-block " id="edit-info">Edit</button>
+            </div>  
+        </div>
     </script>
 
     <!-- Profile Edit View Template -->
     <script type="text/template" id="profile-info-edit-template">
-        <div class="col-lg-6">
-            <div class="row m-3">
-                <div class="col-md-5"><h5>Name: </h5></div>
-                <input type="text" id="name" name="lname" class="ml-3 p-1" disabled value="<%= name %>">
+        <div class="row my-1">
+            <div class="col-md-3 ">
+                <h5>Name:</h5>
             </div>
-            <div class="row m-3">
-                <div class="col-md-5"><h5>Mobile Number: </h5></div>
-                <input type="text" id="mob" name="lname" class="ml-3 p-1" disabled value="<%=mobile_number %>">
+            <div class="col-md-9">
+                <input type="text" id="name" value="<%= model.get('name')%>" class="form-control">
             </div>
-            <div class="row m-3">
-                <div class="col-md-5"><h5>E-Mail ID:</h5></div>
-                <input type="text" id="email" name="lname" class="ml-3 p-1" disabled value="<%= email %>">
+        </div>
+        <div class="row my-1">
+            <div class="col-md-3">
+                <h5>Email:</h5>
             </div>
-        </div >
-        <div class="col-lg-6">
-            <div class="row m-3">
-                <h5>Address: </h5>
-                <textarea class="ml-3 w-75" disabled><%= address %></textarea>
+            <div class="col-md-9">
+                <input type="text" id="email" value="<%= model.get('email')%>"  class="form-control">
             </div>
-            <div class="row">
-                <div class="col-lg-7"></div>
-                <div class="col-lg-5 mt-3 row">
-                    <button class="btn btn-warning mr-2" id="update-info">Update</button>
-                    <button class="btn btn-danger" id="cancel">Cancel</button>
+        </div>
+        <div class="row my-1">
+            <div class="col-md-3 ">
+                <h5>Mob:</h5>
+            </div>
+            <div class="col-md-9">
+               <% if(model.get('mobile_number')){%>
+                 <input  id="mob" class="form-control" value="<%= model.get('mobile_number')%>">
+               <%}else{%>
+                <input  id="mob" class="form-control" value="update your mobile number">
+               <%}%>
+            </div>
+        </div>
+        <div class="row my-1">
+            <div class="col-md-3">
+                <h5>Address:</h5>
+            </div>
+            <div class="col-md-9">
+               <% if(model.get('address')){%>
+                 <textarea  id="address" class="form-control" placeholder="<%= model.get('address')%>"></textarea>
+               <%}else{%>
+                <textarea  id="address" class="form-control" placeholder="update your address"></textarea>
+               <%}%>
+            </div>
+        </div>
+        <div class="row mt-2" >
+            <div class="col-6"></div>
+            <div class="col-3">
+                <button class="btn btn-danger btn-block" id="cancel-edit">Cancel</button>
+            </div>  
+            <div class="col-3">
+                <button class="btn btn-secondary btn-block" id="update-info">Update</button>
+            </div>
+        </div>
+    </script>
+
+    
+    <!-- Avatar update Modal Template -->
+    <script type="text/template" id="avatar-update-modal-template">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title" >Update your avatar</h5>
+                    <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body ">
+                    <input type="file" id="avatar" class="form-control">
+                    <span>please upload your image</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+                    <button type="button" id="upload-avatar" data-dismiss="modal" class="btn btn-primary">Update</button>
                 </div>
             </div>
         </div>
@@ -547,6 +614,7 @@
     <script src="js/views/transaction_view.js"></script>
     <script src="js/views/transaction_edit_modal_view.js"></script>
     <script src="js/views/error_messages_view.js"></script>
+    <script src="js/views/avatar_edit_modal_view.js"></script>
     <script src="js/main.js"></script>
 </body>
 
