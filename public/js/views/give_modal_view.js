@@ -24,7 +24,7 @@ var GiveModalView = Backbone.View.extend({
             url: `http://localhost:3060/users/customer/${customer_id}/give`,
             headers: { 'auth-token': localStorage.getItem('khata-token') },
             success: function (response) {
-                self.model.set('amount', transaction.get('balance'))
+                self.model.set('balance', transaction.get('balance'))
             },
             error: function (error, response) {
                 console.log(response);
@@ -39,6 +39,6 @@ var GiveModalView = Backbone.View.extend({
     initialize: function () {
     },
     render: function () {
-        this.$el.html(this.template({model : this.model}));
+        this.$el.html(this.template({ model: this.model }));
     }
 });
