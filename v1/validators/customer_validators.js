@@ -24,10 +24,10 @@ const updateCustomerByIdValidator = async function (params, body){
     }).options({abortEarly: false, allowUnknown:false})
 
     const body_schema = Joi.object({
-        mobile_number : Joi.number().integer(),
-        customer_name : Joi.string(),
-        address: Joi.string(),
-        email: Joi.string().email({ tlds: { allow: false } })
+        mobile_number : Joi.number().integer().required(),
+        customer_name : Joi.string().required(),
+        address: Joi.string().required(),
+        email: Joi.string().email({ tlds: { allow: false } }).required()
     }).options({abortEarly: false, allowUnknown:false})
 
     return await Promise.all([

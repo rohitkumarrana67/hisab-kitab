@@ -15,7 +15,6 @@ var TransactionView = Backbone.View.extend({
         $(transaction_edit_modal_view.el).modal('show')
     },
     render: function () {
-        console.log(this.model)
         this.$el.html(this.template({ model: this.model }))
         return this
     }

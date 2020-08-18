@@ -43,39 +43,52 @@ var ProfileView = Backbone.View.extend({
         })
 
     },
-    updatePassword: function () {
-        const current_password = $('#current-password').val();
-        const new_password = $('#new-password').val();
-        const confirm_password = $('#confirm-password').val();
-        if (new_password == confirm_password) {
-            const password = new UserModel({
-                current_password, new_password
-            });
-            password.save(null, {
-                url: "http://localhost:3060/users/password",
-                type: "PATCH",
-                headers: { 'auth-token': localStorage.getItem('khata-token') },
-                success: function (response) {
-                    $('#current-password').val('');
-                    $('#new-password').val('');
-                    $('#confirm-password').val('');
-                    setInterval(() => {
-                        document.getElementById('updated-successfully').style.display = "none";
-                    }, 2000);
-                    document.getElementById('updated-successfully').style.display = "block";
-                },
-                error: function (error, response) {
-                    console.log(response)
-                }
 
+    updatePassword:function(){
+            this.$el.find("#passwordinfo").html("");
+           const current_password=$('#current-password').val();
+           const new_password=$('#new-password').val();
+           const confirm_password=$('#confirm-password').val();
+           if(new_password==confirm_password){
+                const password=new UserModel({
+                    current_password,new_password
+                });
+                var self = this;
+                password.save(null,{
+                    url:"http://localhost:3060/users/password",
+                    type:"PATCH",
+                    headers: { 'auth-token': localStorage.getItem('khata-token') },
+                    success:function(response){
+                          $('#current-password').val('');
+                          $('#new-password').val('');
+                          $('#confirm-password').val('');
+                        //   setInterval(() => {
+                        //        document.getElementById('updated-successfully').style.display="none";
+                        //   }, 2000);
+                        //   document.getElementById('updated-successfully').style.display="block";
+                        var view = new ErrorView({model: {messages:'Password updated successfully'}})
+                        self.$el.find("#passwordinfo").html(view.render().$el)
+                    },
+                    error:function(error,response){
+                        var err = self.getUImessage(response.responseJSON.messages)
+                        console.log(err)
+                        var view = new ErrorView({model: response.responseJSON})
+                        self.$el.find("#passwordinfo").html(view.render().$el)
+                    }
+                })
 
-            })
-
-        } else {
-            console.log("confirm password is not matching")
+           }else{
+            var view = new ErrorView({model: {messages:'Passwords do not Match'}})
+            this.$el.find("#passwordinfo").html(view.render().$el)
+           }
+    },
+    getUImessage(messages){
+        console.log(messages)
+        if(messages.includes('is not allowed to be empty')){
+            return {messages:'Required Field cannot be empty'}
         }
     },
-    updateAvatar: function () {
+    updateAvatar:function(){
         var avatar_edit_modal_view = new AvatarUpdateModalView({
         });
         avatar_edit_modal_view.render();

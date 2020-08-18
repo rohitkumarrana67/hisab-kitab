@@ -1,4 +1,3 @@
-
 var SummaryView = Backbone.View.extend({
     collection: transaction_collection,
     template: _.template($('#summary-template').html()),
@@ -17,8 +16,46 @@ var SummaryView = Backbone.View.extend({
     cancelEvent: function () {
         this.render(this.model)
     },
-    updateDetails: function () {
-        console.log("updated")
+    updateDetails: function (e) {
+        this.$el.find("#updateinfo").html("")
+        const customer_name = $("#name").val()
+        const mobile_number = $("#mob").val()
+        const email = $("#email").val()
+        const address = $("#address").val()
+        var user=new CustomerModel({
+           customer_name,mobile_number,email,address
+        })
+        var self = this;
+        user.save(null,{
+            url: "http://localhost:3060/users/customers/"+this.model.get('customer_id'),
+            type : "PATCH",
+            headers: { 'auth-token': localStorage.getItem('khata-token')},
+            success: async (response) => {
+                var view = new ErrorView({model: {messages:"The details were updated successfully"}})
+                await self.render(self.model)
+                self.$el.find("#updateinfo").append(view.render().$el)
+            },
+            error: function (err, response) {
+                console.log(response.responseJSON)
+               var err = self.getUIMessage(response.responseJSON.messages)
+               var view = new ErrorView({model: err})
+               self.$el.find("#updateinfo").html(view.render().$el)
+            }
+        })
+    },
+    getUIMessage: function(message) {
+        if(message.includes("E11000 duplicate key error collection: khata_book.customers index: email_1 dup key")){
+            return {messages:"Email ID already in use"}
+        }
+        else if(message.includes("Cast to Number failed for value")){
+            return {messages:"Mobile number is not valid"}
+        }
+        else if(message == "'email' is not allowed to be empty"){
+            return {messages:"Email cannot be blank"}
+        }
+        else {
+            return {messages : message}
+        }
     },
     render: async function (data) {
         await data.fetch({

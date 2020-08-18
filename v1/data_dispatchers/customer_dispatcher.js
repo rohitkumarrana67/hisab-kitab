@@ -1,6 +1,7 @@
 const CustomerModel = require("../../db/models/customer");
 const { recordNotFoundError } = require("../../core/utility_functions");
 var uuid = require('uuid-random');
+const { collection } = require("../../db/models/customer");
 
 module.exports = CustomerDispatcher = function (req_data, user_info) {
     this.user_info = user_info;
