@@ -58,11 +58,12 @@ var SummaryView = Backbone.View.extend({
         }
     },
     render: async function (data) {
+        var self = this
         await data.fetch({
             url : "http://localhost:3060/users/customers/" + data.get('customer_id'),
             headers: { 'auth-token': localStorage.getItem('khata-token') },
             success: response => {
-                this.model = new CustomerModel(response.toJSON())
+                self.model = new CustomerModel(response.toJSON())
             }
         })
 
