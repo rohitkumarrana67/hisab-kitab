@@ -264,7 +264,6 @@
             </div>
         </div>
     </script>
-
     
     <!-- Avatar update Modal Template -->
     <script type="text/template" id="avatar-update-modal-template">
@@ -344,10 +343,12 @@
             </div>
         </div>
     </script>
+
     <!-- Error Message Template -->
     <script type="text/template" id="errors-template">
         <small><%= messages %></small>
     </script>
+
     <!-- Main Customers View Template -->
     <script type="text/template" id="main-customers-template">
         <div class="container">
@@ -468,22 +469,25 @@
             <h2 class="my-4 text-warning ml-4"> <b>Customer Information</b></h2>
             <div class="row p-3 my-2 mx-2" style="box-shadow: 5px 5px 5px 5px #F0F0F0;" id="customer-info">
                 <div class="col-lg-6">
-                    <div class="row m-3">
-                        <div class="col-md-5"><h5>Name: </h5><p><%= model.get('customer_name') %></p></div>
+                    <div class="row m-3 justify-content-between">
+                        <div class="col-md-5 px-0"><h5>Name: </h5></div>
+                        <div class="col-md-7"><p><%= model.get('customer_name') %></p></div>
                     </div>
-                    <div class="row m-3">
-                        <div class="col-md-5"><h5>Mobile Number: </h5><p><%= model.get('mobile_number') %></p></div>
+                    <div class="row m-3 justify-content-between">
+                        <div class="col-md-5 px-0"><h5>Mobile Number: </h5></div>
+                        <div class="col-md-7"><p><%= model.get('mobile_number') %></p></div>
                     </div>
-                    <div class="row m-3">
-                        <div class="col-md-5"><h5>E-Mail ID: </h5><p><%= model.get('email') %></p></div>
+                    <div class="row m-3 justify-content-between">
+                        <div class="col-md-5 px-0"><h5>E-Mail ID: </h5></div>
+                        <div class="col-md-7"><p><%= model.get('email') %></p></div>
                     </div>
                 </div >
                 <div class="col-lg-6">
                     <div class="row m-3">
-                        <h5>Address: </h5><p><%= model.get('address') %></p>
+                        <div class="col-md-3 px-0"><h5>Address: </h5></div>
+                        <div class="col-md-8"><p><%= model.get('address') %></p></div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-7"></div>
+                    <div class="row justify-content-center position-absolute fixed-bottom">
                         <div class="col-lg-4 mt-3 editbutton">
                             <button class="btn btn-primary px-4 ml-5" id="edit-info">Edit</button>
                         </div>
@@ -492,8 +496,7 @@
             </div>
             <div class="container mt-4">
                 <h3 class="text-info">TRANSACTION DETAILS</h3>
-                <div id="transactions"> 
-                </div>
+                <div id="transactions"></div>
             </div>
         </div>   
     </script>
@@ -501,29 +504,28 @@
     <!-- Summary Customer Info Edit Template -->
     <script type="text/template" id="customer-info-edit-template">
         <div class="col-lg-6">
-            <div class="row m-3">
-                <div class="col-md-5"><h5>Name: </h5></div>
-                <input type="text" id="name" name="lname" class="ml-3 p-1" value="<%= model.get('customer_name') %>">
+            <div class="row m-3 justify-content-between">
+                <div class="col-md-5 px-0"><h5>Name: </h5></div>
+                <div class="col-md-7"><input type="text" id="name" name="name" class="p-1" value="<%= model.get('customer_name') %>"></div>
             </div>
-            <div class="row m-3">
-                <div class="col-md-5"><h5>Mobile Number: </h5></div>
-                <input type="text" id="mob" name="lname" class="ml-3 p-1" value="<%= model.get('mobile_number') %>">
+            <div class="row m-3 justify-content-between">
+                <div class="col-md-5 px-0"><h5>Mobile Number: </h5></div>
+                <div class="col-md-7"><input type="text" id="mob" name="mobile_number" class="p-1" value="<%= model.get('mobile_number') %>"></div>
             </div>
-            <div class="row m-3">
-                <div class="col-md-5"><h5>E-Mail ID:</h5></div>
-                <input type="text" id="email" name="lname" class="ml-3 p-1" value="<%= model.get('email') %>">
+            <div class="row m-3 justify-content-between">
+                <div class="col-md-5 px-0"><h5>E-Mail ID: </h5></div>
+                <div class="col-md-7"><input type="text" id="email" name="email" class="p-1" value="<%= model.get('email') %>"></div>
             </div>
-        </div>
+        </div >
         <div class="col-lg-6">
             <div class="row m-3">
-                <h5>Address: </h5>
-                <textarea class="ml-3 w-75" id="address"><%= model.get('address') %></textarea>
+                <div class="col-md-3 px-0"><h5>Address: </h5></div>
+                <div class="col-md-8"><textarea class="w-100" rows="4" id="address"><%= model.get('address') %></textarea></div>
             </div>
-            <div class="row">
-                <div class="col-lg-7"></div>
-                <div class="col-lg-5 mt-3 row">
+            <div class="row justify-content-center align-items-center>
+                <div class="col-lg-6 mt-3 d-md-inline-flex justify-content-around">
                     <button class="btn btn-warning mr-2" id="update-info">Update</button>
-                    <button class="btn btn-danger" id="cancel">Cancel</button>
+                    <button class="btn btn-danger mr-2" id="cancel">Cancel</button>
                 </div>
             </div>
         </div>
