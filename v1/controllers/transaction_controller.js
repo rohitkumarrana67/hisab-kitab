@@ -8,7 +8,7 @@ module.exports = {
         requestValidator.indexRequestValidator(req.params)
         .then( validated_data => {
             const req_data = {
-                params : validated_data.value
+                params : validated_data
             }
             const transaction_service = new TransactionService(req_data, req.user.user_id)
             return transaction_service.getTransactionList()
@@ -25,8 +25,8 @@ module.exports = {
         requestValidator.createEntryValidator(req.params, req.body)
         .then( validated_data => {
             const req_data = {
-                params : validated_data[0].value,
-                body : validated_data[1].value
+                params : validated_data[0],
+                body : validated_data[1]
             }
             const transaction_service = new TransactionService(req_data, req.user.user_id)
             return transaction_service.createEntry()
@@ -43,7 +43,7 @@ module.exports = {
         requestValidator.balanceRequestValidator(req.params)
         .then( validated_data => {
             const req_data = {
-                params : validated_data.value
+                params : validated_data
             }
             const transaction_service = new TransactionService(req_data, req.user.user_id)
             return transaction_service.getBalance()
@@ -60,8 +60,8 @@ module.exports = {
         requestValidator.updateRequestValidator(req.params, req.body)
         .then( validated_data => {
             const req_data = {
-                params : validated_data[0].value,
-                body : validated_data[1].value
+                params : validated_data[0],
+                body : validated_data[1]
             }
             const transaction_service = new TransactionService(req_data, req.user.user_id)
             return transaction_service.updateTransaction()

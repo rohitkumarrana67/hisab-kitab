@@ -47,8 +47,8 @@ module.exports = {
         updateCustomerByIdValidator(req.params, req.body)
         .then(validated_data => {
             const req_data = {
-                params : validated_data[0].value,
-                body : validated_data[1].value
+                params : validated_data[0],
+                body : validated_data[1]
             }
             const CustomerService = new Service(req_data,req.user);
             return CustomerService.updateCustomerById();

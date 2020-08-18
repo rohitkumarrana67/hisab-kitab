@@ -2,8 +2,7 @@ const Joi = require("joi")
 
 const indexRequestValidator = async function (params) {
     const params_schema = Joi.object({
-        id : Joi.string().guid({version:"uuidv4"}).required(),
-        type : Joi.string().allow("give", "take").required()
+        id : Joi.string().guid({version:"uuidv4"}).required()
     }).options({abortEarly: false})
 
     return await params_schema.validateAsync(params, {convert:true})
@@ -36,7 +35,7 @@ const createEntryValidator = async function (params, body) {
 
 const updateRequestValidator = async function (params, body) {
     const params_schema = Joi.object({
-        transaction_id : Joi.string().guid({version:"uuidv4"}).required()
+        transaction_id : Joi.number().integer().required()
     })
 
     const body_schema = Joi.object({
