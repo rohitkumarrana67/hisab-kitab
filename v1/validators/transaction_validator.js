@@ -6,7 +6,7 @@ const indexRequestValidator = async function (params) {
         type : Joi.string().allow("give", "take").required()
     }).options({abortEarly: false})
 
-    return await params_schema.validate(params, {convert:true})
+    return await params_schema.validateAsync(params, {convert:true})
 }
 
 const balanceRequestValidator = async function (params) {
@@ -14,7 +14,7 @@ const balanceRequestValidator = async function (params) {
         id : Joi.string().guid({version:"uuidv4"}).required()
     }).options({abortEarly: false})
 
-    return await params_schema.validate(params, {convert:true})
+    return await params_schema.validateAsync(params, {convert:true})
 }
 
 const createEntryValidator = async function (params, body) {
@@ -29,8 +29,8 @@ const createEntryValidator = async function (params, body) {
     }).options({abortEarly: false})
 
     return await Promise.all([
-        params_schema.validate(params, {convert:true}),
-        body_schema.validate(body, {convert:true})
+        params_schema.validateAsync(params, {convert:true}),
+        body_schema.validateAsync(body, {convert:true})
     ])
 }
 
@@ -45,8 +45,8 @@ const updateRequestValidator = async function (params, body) {
     }).options({abortEarly: false})
 
     return await Promise.all([
-        params_schema.validate(params, {convert:true}),
-        body_schema.validate(body, {convert:true})
+        params_schema.validateAsync(params, {convert:true}),
+        body_schema.validateAsync(body, {convert:true})
     ])
 }
 
