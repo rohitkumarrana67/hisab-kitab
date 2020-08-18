@@ -43,8 +43,8 @@ const UserSchema = new Schema({
         type: Buffer
     },
     tokens: [{
-            type: String,
-            required: true
+        type: String,
+        required: true
     }]
 }, { timestamps: { createdAt: 'created_at', updatedAt: "updated_at" } });
 
