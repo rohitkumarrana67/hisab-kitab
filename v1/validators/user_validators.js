@@ -37,9 +37,18 @@ const updatePasswordValidator = async function (req_data) {
     return await schema.validateAsync(req_data)
 }
 
+const getAvatarValidator = async function (req_data) {
+    const req_obj = { user_id: req_data.id }
+    const schema = Joi.object({
+        user_id: Joi.string().guid({ version: "uuidv4" }).required()
+    })
+    return await schema.validateAsync(req_obj);
+}
+
 module.exports = {
     createValidator,
     loginValidator,
     updateValidator,
-    updatePasswordValidator
+    updatePasswordValidator,
+    getAvatarValidator
 }

@@ -25,3 +25,8 @@ UserService.prototype.updatePassword = async function () {
     const dispatcher_data = await this.dispatcher.updatePassword();
     return this.builder.updatePassword(dispatcher_data)
 }
+
+UserService.prototype.getAvatar = async function () {
+    const dispatcher_data = await this.dispatcher.getAvatar();
+    return this.builder.getAvatar(dispatcher_data);
+}

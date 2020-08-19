@@ -38,3 +38,14 @@ UserDispatcher.prototype.updatePassword = async function () {
     user.password = this.req_data.new_password
     return await user.save();
 }
+
+UserDispatcher.prototype.getAvatar = async function () {
+    const user_id = this.req_data.user_id;
+    const user = await User.findOne({ user_id });
+    if (!user) {
+        throw recordNotFoundError("No such user")
+    } else if (!user.avatar) {
+        throw recordNotFoundError("avatar not found")
+    }
+    return user;
+}

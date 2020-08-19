@@ -1,4 +1,4 @@
-const { createValidator, loginValidator, updateValidator, updatePasswordValidator } = require("../validators/user_validators");
+const { createValidator, loginValidator, updateValidator, updatePasswordValidator, getAvatarValidator } = require("../validators/user_validators");
 const errorBuilder = require("../entity_builders/error_builder");
 const Service = require("../services/user_service");
 const Builder = require("../entity_builders/user_builder");
@@ -65,11 +65,18 @@ module.exports = {
     },
 
     getAvatar: (req, res) => {
-        if (!req.user.avatar) {
-            res.status(404).send({ error: "image not found" });
-        }
-        res.set('Content-Type', 'image/jpg');
-        res.status(201).send(req.user.avatar);
+        getAvatarValidator(req.params).then(validated_data => {
+            const UserService = new Service(validated_data);
+            return UserService.getAvatar();
+        }).then(data => {
+            res.set('Content-Type', 'image/jpg');
+            res.status(201).send(data.avatar);
+        }).catch(error => {
+            errorBuilder(error).then((error) => {
+                res.status(error.code).send(error.body)
+            });
+        });
+
 
     },
 
