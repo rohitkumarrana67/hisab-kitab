@@ -79,7 +79,7 @@ module.exports = {
             const UserService = new Service(validated_data, req.user)
             return UserService.update()
         }).then(data => {
-            res.status(200).send(data)
+            res.status(201).send(data)
         }).catch(error => {
             errorBuilder(error).then((error) => {
                 res.status(error.code).send(error.body)

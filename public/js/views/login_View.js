@@ -29,7 +29,7 @@ var LoginView = Backbone.View.extend({
                 $(".password").addClass("mb-0")
                 var err = self.getUIMessage(response.responseJSON.messages);
                 var view = new ErrorView({model: err})
-                self.$el.find("#error").append(view.render().$el)
+                self.$el.find("#error").html(view.render().$el)
             }
         });
 
