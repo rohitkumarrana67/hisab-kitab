@@ -64,18 +64,26 @@ module.exports = {
         });
     },
 
+    getAvatar: (req, res) => {
+        if (!req.user.avatar) {
+            res.status(404).send({ error: "image not found" });
+        }
+        res.set('Content-Type', 'image/jpg');
+        res.status(201).send(req.user.avatar);
+
+    },
+
     update: async (req, res) => {
-        updateValidator(req.body).then(data=>{
-            const UserService = new Service(data, req.user)
+
+        updateValidator(req.body).then(validated_data => {
+            const UserService = new Service(validated_data, req.user)
             return UserService.update()
-        }).then(data=> {
-            console.log(data)
+        }).then(data => {
             res.status(201).send(data)
         }).catch(error => {
             errorBuilder(error).then((error) => {
                 res.status(error.code).send(error.body)
             });
-
         })
     },
 
