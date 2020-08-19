@@ -1,4 +1,5 @@
 var ErrorView = Backbone.View.extend({
+    className:'text-danger',
     initialize: function(data){
         this.template = _.template($("#errors-template").html())
     },

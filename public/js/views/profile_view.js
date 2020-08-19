@@ -17,6 +17,7 @@ var ProfileView = Backbone.View.extend({
         this.$el.find('#profile-info').html(initial_template())
     },
     updateInfo:function(){
+        $("#updateprofileinfo").html("")
         const name=$('#name').val();
         const email=$('#email').val();
         const mobile_number=$('#mob').val();
@@ -26,14 +27,18 @@ var ProfileView = Backbone.View.extend({
         });
         const self=this
         user.save(null,{
-            url:"http://localhost:3060/users",
+            url:"http://localhost:3060/users/update",
             type: 'PATCH',
             headers: { 'auth-token': localStorage.getItem('khata-token') },
             success: function (response) {
                self.render();
+               self.$el.find("#updateprofileinfo").html(view.render().$el)
             },
             error: function (error, response) {
-                console.log(error, response);
+                var err = self.getUImessage(response.responseJSON.messages[0])
+                console.log(err)
+                var view = new ErrorView({model : response.responseJSON})
+                self.$el.find("#updateprofileinfo").html(view.render().$el)
             }
         })
 
@@ -65,8 +70,7 @@ var ProfileView = Backbone.View.extend({
                     },
                     error:function(error,response){
                         var err = self.getUImessage(response.responseJSON.messages)
-                        console.log(err)
-                        var view = new ErrorView({model: response.responseJSON})
+                        var view = new ErrorView({model: err})
                         self.$el.find("#passwordinfo").html(view.render().$el)
                     }
                 })
@@ -78,8 +82,17 @@ var ProfileView = Backbone.View.extend({
     },
     getUImessage(messages){
         console.log(messages)
-        if(messages.includes('is not allowed to be empty')){
+        if(messages[0].includes('is not allowed to be empty') || messages.includes('is not allowed to be empty')){
             return {messages:'Required Field cannot be empty'}
+        }
+        else if(messages=="current password not matched!"){
+            return {messages:'The password you entered was incorrect! '}
+        }
+        else if(messages=="'email' must be a valid email"){
+            return {messages:"Inavlid Email"}
+        }
+        else{
+            return {messages : 'Something Went wrong.! Please try again.'}
         }
     },
     updateAvatar:function(){

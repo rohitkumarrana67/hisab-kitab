@@ -18,11 +18,12 @@ const loginValidator = async function (req_data) {
 }
 
 const updateValidator = async function (req_data) {
+    // console.log(req_data)
     const schema = Joi.object({
         name: Joi.string().required(),
         email: Joi.string().email({ tlds: { allow: false } }).required(),
         address: Joi.string().required(),
-        mobile_number: Joi.number()
+        mobile_number: Joi.number().integer().required()
     });
     return await schema.validateAsync(req_data);
 }

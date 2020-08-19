@@ -65,12 +65,17 @@ module.exports = {
     },
 
     update: async (req, res) => {
-        var data = await updateValidator(req.body)
-        const UserService = new Service(data, req.user)
-        UserService.update().then(data => {
-            res.status(200).send(data)
-        }).catch(err => {
-            res.status(500).send(err)
+        updateValidator(req.body).then(data=>{
+            const UserService = new Service(data, req.user)
+            return UserService.update()
+        }).then(data=> {
+            console.log(data)
+            res.status(201).send(data)
+        }).catch(error => {
+            errorBuilder(error).then((error) => {
+                res.status(error.code).send(error.body)
+            });
+
         })
     },
 
