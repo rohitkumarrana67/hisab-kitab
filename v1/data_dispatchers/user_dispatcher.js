@@ -24,7 +24,6 @@ UserDispatcher.prototype.login = async function (req_data) {
 
 UserDispatcher.prototype.update = async function () {
     const user_id = this.user_info.user_id
-    console.log(this.req_data);
     const user = await User.findOneAndUpdate({ user_id }, { $set: this.req_data }, { new: true });
     return user;
 }
