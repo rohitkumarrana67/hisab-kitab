@@ -74,7 +74,6 @@ module.exports = {
     },
 
     update: async (req, res) => {
-
         updateValidator(req.body).then(validated_data => {
             const UserService = new Service(validated_data, req.user)
             return UserService.update()

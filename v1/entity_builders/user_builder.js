@@ -19,7 +19,6 @@ UserEntityBuilder.prototype.login = function (req_data) {
 UserEntityBuilder.prototype.userProfile = function (req_data) {
     // console.log(req_data)
     const { name, email, address, mobile_number, avatar } = req_data;
-    console.log(req_data)
     return { name, email, address, mobile_number, avatar };
 }
 

@@ -16,16 +16,16 @@ router.post("/avatar", Auth, avatar.single('upload'), userController.setAvatar, 
 router.get("/avatar", Auth, userController.getAvatar);
 router.patch("/", Auth, userController.update)
 
-router.get("/:id/avatar", async (req, res) => {
-    const user = await User.findOne({ user_id: req.params.id });
-    console.log(user);
-    if (!user.avatar) {
-        res.status(404).send({ error: "image not found" });
-    } else {
-        res.set('Content-Type', 'image/jpg');
-        res.status(201).send(user.avatar);
-    }
-})
+// router.get("/:id/avatar", async (req, res) => {
+//     const user = await User.findOne({ user_id: req.params.id });
+//     // console.log(user);
+//     if (!user.avatar) {
+//         res.status(404).send({ error: "image not found" });
+//     } else {
+//         res.set('Content-Type', 'image/jpg');
+//         res.status(201).send(user.avatar);
+//     }
+// })
 // router.get("/:userid",userController.readUser)
 // router.delete("/:userid",userController.deleteUser)
 
