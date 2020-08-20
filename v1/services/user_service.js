@@ -25,3 +25,7 @@ UserService.prototype.updatePassword = async function () {
     const dispatcher_data = await this.dispatcher.updatePassword();
     return this.builder.updatePassword(dispatcher_data)
 }
+
+UserService.prototype.deleteUser = async function () {
+    return await this.dispatcher.deleteUser();
+}

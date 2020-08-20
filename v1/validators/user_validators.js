@@ -37,9 +37,19 @@ const updatePasswordValidator = async function (req_data) {
     return await schema.validateAsync(req_data)
 }
 
+const deleteRequestValidator = async function (params) {
+    
+    const params_schema = Joi.object({
+        user_id: Joi.string().guid({version:"uuidv4"}).required()
+    }).options({allowUnknown:false});
+
+    return await params_schema.validateAsync(params);
+}
+
 module.exports = {
     createValidator,
     loginValidator,
     updateValidator,
-    updatePasswordValidator
+    updatePasswordValidator,
+    deleteRequestValidator
 }

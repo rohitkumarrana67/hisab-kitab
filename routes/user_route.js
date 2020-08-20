@@ -27,6 +27,6 @@ router.get("/:id/avatar", async (req, res) => {
     }
 })
 // router.get("/:userid",userController.readUser)
-// router.delete("/:userid",userController.deleteUser)
+router.delete("/:user_id", Auth, userController.deleteUser)
 
 module.exports = router;

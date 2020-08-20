@@ -13,6 +13,13 @@ var AppRouter = Backbone.Router.extend({
         var landingView = new LandingView({ el: ".landing" })
     },
     loginView: function () {
+        if (!localStorage.getItem('khata-token')) {
+            $('.before-auth').show()
+            $('.after-auth').hide()
+        } else {
+            $('.before-auth').hide()
+            $('.after-auth').show()
+        }
         var login_view = new LoginView({ el: '#content' })
     },
     logoutView: async function () {
