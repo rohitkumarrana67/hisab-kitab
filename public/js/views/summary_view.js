@@ -45,14 +45,13 @@ var SummaryView = Backbone.View.extend({
         })
     },
     deleteCustomer: function () {
-        var customer = new CustomerModel({
-        });
         const customer_id = this.model.get('customer_id');
-        customer.destroy({
+        this.model.fetch({
             url: "http://localhost:3060/users/customers/" + customer_id,
             headers: { 'auth-token': localStorage.getItem('khata-token') },
+            type: "DELETE",
             success: function (response) {
-                console.log(response);
+                window.location = "#customers"
             },
             error: function (error, response) {
                 console.log(response);
