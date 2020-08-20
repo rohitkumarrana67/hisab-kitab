@@ -1,8 +1,10 @@
+
 var ProfileView = Backbone.View.extend({
     model: new UserModel(),
     template: _.template($('#profile-template').html()),
     events: {
         "click #edit-info": "editInfo",
+        "click #delete-user":"deleteUser",
         "click #cancel-edit": "cancelEdit",
         "click #update-info": "updateInfo",
         "click #update-password": "updatePassword",
@@ -11,6 +13,20 @@ var ProfileView = Backbone.View.extend({
     editInfo: function () {
         var edit_template = _.template($('#profile-info-edit-template').html())
         this.$el.find('#profile-info').html(edit_template({ model: this.model }))
+    },
+    deleteUser: function () {
+        this.model.fetch({
+            url: "http://localhost:3060/users/"+this.model.get('user_id'),
+            headers: { 'auth-token': localStorage.getItem('khata-token') },
+            type: 'DELETE',
+            success: function (response) {
+                localStorage.removeItem('khata-token');
+                window.location = "#login";
+            },
+            error: function (error, response){
+                console.log(response)
+            }
+        });
     },
     cancelEdit: function () {
         var initial_template = _.template($('#initial-profile-template').html())
