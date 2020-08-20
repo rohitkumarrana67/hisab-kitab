@@ -1,4 +1,6 @@
 const User = require("../../db/models/users");
+const Customer = require("../../db/models/customer");
+const Transaction = require("../../db/models/transactions");
 var uuid = require('uuid-random');
 const bcrypt = require("bcryptjs");
 const { recordNotFoundError, unprocessableEntityError } = require("../../core/utility_functions");
@@ -37,4 +39,15 @@ UserDispatcher.prototype.updatePassword = async function () {
     }
     user.password = this.req_data.new_password
     return await user.save();
+}
+
+UserDispatcher.prototype.deleteUser = async function () {
+    const id = this.req_data.params.user_id;
+    if(id === this.user_info.user_id){
+        await User.deleteMany({user_id : id});
+        await Customer.deleteMany({user_id : id});
+        await Transaction.deleteMany({user_id : id});
+        return true;
+    }
+    throw unprocessableEntityError("Cannot delete records of any other user.");
 }
