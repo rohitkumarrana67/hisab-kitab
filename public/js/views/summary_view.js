@@ -58,20 +58,6 @@ var SummaryView = Backbone.View.extend({
             }
         })
     },
-    getUIMessage: function (message) {
-        if (message.includes("E11000 duplicate key error collection: khata_book.customers index: email_1 dup key")) {
-            return { messages: "Email ID already in use" }
-        }
-        else if (message.includes("Cast to Number failed for value")) {
-            return { messages: "Mobile number is not valid" }
-        }
-        else if (message == "'email' is not allowed to be empty") {
-            return { messages: "Email cannot be blank" }
-        }
-        else {
-            return { messages: message }
-        }
-    },
     render: async function (data) {
         var self = this
         await data.fetch({

@@ -2,6 +2,7 @@ const UserDispatcher = require("../data_dispatchers/user_dispatcher");
 const UserEntityBuilder = require("../entity_builders/user_builder");
 
 module.exports = UserService = function (req_data, user_info) {
+    // console.log(req_data)
     this.dispatcher = new UserDispatcher(req_data, user_info);
     this.builder = new UserEntityBuilder(req_data);
 }
@@ -33,4 +34,14 @@ UserService.prototype.getAvatar = async function () {
 
 UserService.prototype.deleteUser = async function () {
     return await this.dispatcher.deleteUser();
+}
+
+UserService.prototype.forgotpassword = async function() {
+    const dispatcher_data = await this.dispatcher.forgotpassword();
+    return dispatcher_data;
+}
+
+UserService.prototype.resetpassword = async function() {
+    const dispatcher_data = await this.dispatcher.resetpassword();
+    return dispatcher_data;
 }

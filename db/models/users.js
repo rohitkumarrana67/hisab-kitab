@@ -42,6 +42,10 @@ const UserSchema = new Schema({
     avatar: {
         type: Buffer
     },
+    resetLink:{
+        type: String,
+        default: ''
+    },
     tokens: [{
         type: String,
         required: true

@@ -3,9 +3,7 @@ const router = express.Router();
 const userController = require("../v1/controllers/user_controller");
 const Auth = require("../core/authenticator");
 const { avatar, avatarError } = require("../core/utility_functions");
-
 const User = require("../db/models/users");
-
 
 router.post("/", userController.createNewUser);
 router.post("/login", userController.login);
@@ -15,10 +13,15 @@ router.patch("/password", Auth, userController.updatePassword)
 router.post("/avatar", Auth, avatar.single('upload'), userController.setAvatar, avatarError);
 router.get("/:id/avatar", userController.getAvatar);
 router.patch("/", Auth, userController.update)
+router.post("/forgotpassword", userController.forgotpassword)
+router.get("/resetpassword/:token",function(req,res){
+    res.render('index',{token : req.params})
+})
+router.post('/resetpassword', userController.resetpassword)
 
 // router.get("/:id/avatar", async (req, res) => {
 //     const user = await User.findOne({ user_id: req.params.id });
-//     console.log(user);
+//     // console.log(user);
 //     if (!user.avatar) {
 //         res.status(404).send({ error: "image not found" });
 //     } else {

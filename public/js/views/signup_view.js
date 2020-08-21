@@ -8,6 +8,8 @@ var SignupView = Backbone.View.extend({
         'submit #signup-form': 'createUser'
     },
     createUser: function (e) {
+        $("#signuperror").html("")
+        $(".signup").removeClass("mb-1")
         e.preventDefault();
         var name = $('#user_name').val();
         var email = $('#email').val();
@@ -27,7 +29,10 @@ var SignupView = Backbone.View.extend({
                 window.location = "#customers";
             },
             error: function (err, response) {
-                console.log(response)
+                var err = getUIMessage(response.responseJSON.messages)
+               var view = new ErrorView({model: err})
+               self.$el.find("#signuperror").html(view.render().$el)
+               $(".signup").addClass("mb-1")
             }
         });
 
