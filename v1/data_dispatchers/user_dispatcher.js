@@ -41,6 +41,17 @@ UserDispatcher.prototype.updatePassword = async function () {
     return await user.save();
 }
 
+UserDispatcher.prototype.getAvatar = async function () {
+    const user_id = this.req_data.user_id;
+    const user = await User.findOne({ user_id });
+    if (!user) {
+        throw recordNotFoundError("No such user")
+    } else if (!user.avatar) {
+        throw recordNotFoundError("avatar not found")
+    }
+    return user;
+}
+
 UserDispatcher.prototype.deleteUser = async function () {
     const id = this.req_data.params.user_id;
     if(id === this.user_info.user_id){
@@ -51,3 +62,4 @@ UserDispatcher.prototype.deleteUser = async function () {
     }
     throw unprocessableEntityError("Cannot delete records of any other user.");
 }
+

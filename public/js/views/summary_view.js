@@ -7,11 +7,12 @@ var SummaryView = Backbone.View.extend({
     events: {
         "click #edit-info": "editDetails",
         "click #cancel": "cancelEvent",
-        "click #update-info": "updateDetails"
+        "click #update-info": "updateDetails",
+        "click #delete-customer": "deleteCustomer"
     },
     editDetails: function () {
         var edit_template = _.template($('#customer-info-edit-template').html())
-        this.$el.find('#customer-info').html(edit_template({model : this.model}))
+        this.$el.find('#customer-info').html(edit_template({ model: this.model }))
     },
     cancelEvent: function () {
         this.render(this.model)
@@ -22,45 +23,59 @@ var SummaryView = Backbone.View.extend({
         const mobile_number = $("#mob").val()
         const email = $("#email").val()
         const address = $("#address").val()
-        var user=new CustomerModel({
-           customer_name,mobile_number,email,address
+        var customer = new CustomerModel({
+            customer_name, mobile_number, email, address
         })
         var self = this;
-        user.save(null,{
-            url: "http://localhost:3060/users/customers/"+this.model.get('customer_id'),
-            type : "PATCH",
-            headers: { 'auth-token': localStorage.getItem('khata-token')},
+        customer.save(null, {
+            url: "http://localhost:3060/users/customers/" + this.model.get('customer_id'),
+            type: "PATCH",
+            headers: { 'auth-token': localStorage.getItem('khata-token') },
             success: async (response) => {
-                var view = new ErrorView({model: {messages:"The details were updated successfully"}})
+                var view = new ErrorView({ model: { messages: "The details were updated successfully" } })
                 await self.render(self.model)
                 self.$el.find("#updateinfo").append(view.render().$el)
             },
             error: function (err, response) {
                 console.log(response.responseJSON)
-               var err = self.getUIMessage(response.responseJSON.messages)
-               var view = new ErrorView({model: err})
-               self.$el.find("#updateinfo").html(view.render().$el)
+                var err = self.getUIMessage(response.responseJSON.messages)
+                var view = new ErrorView({ model: err })
+                self.$el.find("#updateinfo").html(view.render().$el)
             }
         })
     },
-    getUIMessage: function(message) {
-        if(message.includes("E11000 duplicate key error collection: khata_book.customers index: email_1 dup key")){
-            return {messages:"Email ID already in use"}
+    deleteCustomer: function () {
+        const customer_id = this.model.get('customer_id');
+        this.model.set({ id: customer_id });
+        this.model.destroy({
+            url: "http://localhost:3060/users/customers/" + customer_id,
+            headers: { 'auth-token': localStorage.getItem('khata-token') },
+            success: function (response) {
+                window.location = "#customers"
+            },
+            error: function (error, response) {
+                console.log(response);
+            }
+        })
+    },
+    getUIMessage: function (message) {
+        if (message.includes("E11000 duplicate key error collection: khata_book.customers index: email_1 dup key")) {
+            return { messages: "Email ID already in use" }
         }
-        else if(message.includes("Cast to Number failed for value")){
-            return {messages:"Mobile number is not valid"}
+        else if (message.includes("Cast to Number failed for value")) {
+            return { messages: "Mobile number is not valid" }
         }
-        else if(message == "'email' is not allowed to be empty"){
-            return {messages:"Email cannot be blank"}
+        else if (message == "'email' is not allowed to be empty") {
+            return { messages: "Email cannot be blank" }
         }
         else {
-            return {messages : message}
+            return { messages: message }
         }
     },
     render: async function (data) {
         var self = this
         await data.fetch({
-            url : "http://localhost:3060/users/customers/" + data.get('customer_id'),
+            url: "http://localhost:3060/users/customers/" + data.get('customer_id'),
             headers: { 'auth-token': localStorage.getItem('khata-token') },
             success: response => {
                 self.model = new CustomerModel(response.toJSON())
