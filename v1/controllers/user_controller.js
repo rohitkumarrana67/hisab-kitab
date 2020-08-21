@@ -1,4 +1,10 @@
-const { createValidator, loginValidator, updateValidator, updatePasswordValidator, deleteRequestValidator } = require("../validators/user_validators");
+const { createValidator, 
+    loginValidator, 
+    updateValidator, 
+    updatePasswordValidator,
+    deleteRequestValidator,
+    forgotpasswordValidator,
+    resetpasswordValidator } = require("../validators/user_validators");
 const errorBuilder = require("../entity_builders/error_builder");
 const Service = require("../services/user_service");
 const Builder = require("../entity_builders/user_builder");
@@ -112,6 +118,39 @@ module.exports = {
             res.status(204).send();
         })
         .catch( error => {
+            errorBuilder(error).then( error => {
+                res.status(error.code).send(error.body);
+            });
+        });
+    },
+
+    forgotpassword : (req, res) => {
+        // console.log(req.body)
+        forgotpasswordValidator(req.body).then( data => {
+            const UserService = new Service(data);
+            return UserService.forgotpassword()
+         })
+        .then(data => {
+            res.send(data);
+        }).catch( error => {
+            errorBuilder(error).then( error => {
+                res.status(error.code).send(error.body);
+            });
+        });
+    },
+
+    resetpassword : (req, res) => {
+        resetpasswordValidator(req.body).then( data => {
+            const UserService = new Service(data);
+            return UserService.resetpassword()
+         }).then(data => {
+            if(data.message == 'Password reset successful'){
+                res.send(data.message+"<a href='http://localhost:3060'>     Log in</a> to continue")
+            }
+            else{
+                res.send(data.message)
+            }
+        }).catch( error => {
             errorBuilder(error).then( error => {
                 res.status(error.code).send(error.body);
             });

@@ -7,7 +7,8 @@ var AppRouter = Backbone.Router.extend({
         'logout': 'logoutView',
         'profile': 'profileView',
         'customers': 'customersView',
-        'customers/:customer_id/summary' : 'summaryView'
+        'customers/:customer_id/summary' : 'summaryView',
+        'reset' : 'resetView'
     },
     homeView: function () {
         var landingView = new LandingView({ el: ".landing" })
@@ -73,6 +74,10 @@ var AppRouter = Backbone.Router.extend({
             var customer = new CustomerModel({ customer_id : customer_id })
             var view = new SummaryView({ model: customer, el: '#content' })
         }
-    }
+    },
+    resetView : function() {
+        var reset_view = new resetView({ el: "#content"});
+        reset_view.render()
+    },
 
 })

@@ -11,7 +11,7 @@ const createValidator = async function (req_data) {
 
 const loginValidator = async function (req_data) {
     const schema = Joi.object({
-        password: Joi.string().min(7).required(),
+        password: Joi.string().required(),
         email: Joi.string().email({ tlds: { allow: false } }).required()
     });
     return await schema.validateAsync(req_data);
@@ -42,8 +42,23 @@ const deleteRequestValidator = async function (params) {
     const params_schema = Joi.object({
         user_id: Joi.string().guid({version:"uuidv4"}).required()
     }).options({allowUnknown:false});
-
     return await params_schema.validateAsync(params);
+}
+
+const forgotpasswordValidator = async function (req_data) {
+   
+    const schema = Joi.object({
+        email: Joi.string().email({ tlds: { allow: false } }).required()
+    })
+    return await schema.validateAsync(req_data)
+}
+
+const resetpasswordValidator = async function (req_data) {
+    const schema = Joi.object({
+        newpassword: Joi.string().min(7).required(),
+        resetLink: Joi.string().required()
+    })
+    return await schema.validateAsync(req_data)
 }
 
 module.exports = {
@@ -51,5 +66,7 @@ module.exports = {
     loginValidator,
     updateValidator,
     updatePasswordValidator,
-    deleteRequestValidator
+    deleteRequestValidator,
+    forgotpasswordValidator,
+    resetpasswordValidator
 }

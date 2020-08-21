@@ -1,5 +1,5 @@
 const getUIMessage = function(messages){
-    console.log(messages)
+    
     if(messages[0] == "'mobile_number' must be a number"){
         return { messages : 'Invalid Mobile Number'}
     }
@@ -44,6 +44,9 @@ const getUIMessage = function(messages){
     }
     else if(messages == "'email' is not allowed to be empty"){
         return {messages:"Email cannot be blank"}
+    }
+    else if(messages == 'User with the given mail id does not exists'){
+        return {messages}
     }
     else{
         return { messages : 'Something went wrong.. Please try again..!'}

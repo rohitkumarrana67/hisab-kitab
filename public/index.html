@@ -344,6 +344,32 @@
                             <button class="btn btn-primary">Login</button>
                         </form>
                         <p class="my-2">New User? <a href="#signup">Register Here</a></p>
+                        <span class="my-2 text-primary" type="button" id="resetpassword" data-url="reset">Forgot Password</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <!-- Reset Password View -->
+    <script type="text/template" id="reset-template">
+        <div class="container-fluid signup-container ">
+            <div class="row">
+                <div class="col-6 p-0 ">
+                    <img class="signup-img" src="img/login.jpg" alt="">
+                </div>
+                <div class="col-6 p-0 d-flex justify-content-center align-items-center ">
+                    <div class="form-container">  
+                        <h3 class="mb-3">Reset Your Password</h3>
+                        <form action="" id="login-form">
+                            <div class="form-group">
+                                <input id="reset-email" type="text" class="form-control" placeholder="E-Mail">
+                            </div>
+                            <button class="btn btn-primary" id="send-mail">Send Activation Link</button>
+                        </form>
+                        <div class="my-2" id="trackinfo">
+                            <h6>An email with an activation link will be sent to your account.</h6>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -352,7 +378,7 @@
 
     <!-- Error Message Template -->
     <script type="text/template" id="errors-template">
-        <%= messages %>
+        <h6> <%= messages %> </h6>
     </script>
 
     <!-- Main Customers View Template -->
@@ -626,6 +652,7 @@
     <script src="js/views/transaction_edit_modal_view.js"></script>
     <script src="js/views/error_messages_view.js"></script>
     <script src="js/views/avatar_edit_modal_view.js"></script>
+    <script src="js/views/reset_password_view.js"></script>
     <script src="js/UIhelper/getUIMessage.js"></script>
     <script src="js/main.js"></script>
 </body>

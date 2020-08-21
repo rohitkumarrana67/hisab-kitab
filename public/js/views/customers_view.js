@@ -1,5 +1,3 @@
-
-
 var CustomersView = Backbone.View.extend({
     model: CustomerModel,
     collection: customer_collection,

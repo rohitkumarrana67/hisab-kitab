@@ -1,3 +1,4 @@
+var router = new AppRouter();
 var LoginView = Backbone.View.extend({
     model: UserModel,
     template: _.template($('#login-template').html()),
@@ -5,7 +6,8 @@ var LoginView = Backbone.View.extend({
         this.render();
     },
     events: {
-        'submit #login-form': 'login'
+        'submit #login-form': 'login',
+        'click #resetpassword' : 'reset'
     },
     login: function (e) {
         this.$el.find("#error").html("")
@@ -32,8 +34,10 @@ var LoginView = Backbone.View.extend({
                 self.$el.find("#error").html(view.render().$el)
             }
         });
-
-
+    },
+    reset: function(e) {
+        var li = $(e.target);
+        router.navigate(li.attr("data-url"),{trigger: true});
     },
     render: function () {
         this.$el.html(this.template());
