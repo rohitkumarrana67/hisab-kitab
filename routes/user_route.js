@@ -11,7 +11,7 @@ router.post('/logout', Auth, userController.logout);
 router.get("/profile", Auth, userController.getProfile)
 router.patch("/password", Auth, userController.updatePassword)
 router.post("/avatar", Auth, avatar.single('upload'), userController.setAvatar, avatarError);
-router.get("/avatar", Auth, userController.getAvatar);
+router.get("/:id/avatar", userController.getAvatar);
 router.patch("/", Auth, userController.update)
 router.post("/forgotpassword", userController.forgotpassword)
 router.get("/resetpassword/:token",function(req,res){

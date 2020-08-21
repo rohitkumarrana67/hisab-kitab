@@ -47,6 +47,17 @@ UserDispatcher.prototype.updatePassword = async function () {
     return await user.save();
 }
 
+UserDispatcher.prototype.getAvatar = async function () {
+    const user_id = this.req_data.user_id;
+    const user = await User.findOne({ user_id });
+    if (!user) {
+        throw recordNotFoundError("No such user")
+    } else if (!user.avatar) {
+        throw recordNotFoundError("avatar not found")
+    }
+    return user;
+}
+
 UserDispatcher.prototype.deleteUser = async function () {
     const id = this.req_data.params.user_id;
     if(id === this.user_info.user_id){
@@ -78,16 +89,6 @@ UserDispatcher.prototype.forgotpassword = async function() {
                     <a href=http://localhost:3060/users/resetpassword/${token}>ResetLink</a>
                 `
             };
-            // return mg.messages().send(data, function (error, body) {
-            //     if(error){
-            //        console.log("Can't send Email")
-            //        return { type:'error', message:"Unable to send email"}
-            //     }
-            //     else{
-            //         console.log('An email with a link to reset your password has been sent to your email id.')
-            //         return { type:'error', message:"An email with a link to reset your password has been sent to your email id." }
-            //     }
-            // });
             return mg.messages().send(data).then(data=>{
                 console.log("Mail sent")
                 return { type:'success', message:"An email with a link to reset your password has been sent to your email id." }
@@ -119,21 +120,6 @@ UserDispatcher.prototype.resetpassword = async function() {
                 console.log("Error ")
                 return{type:"error",message:"User with this token does not exist or Token Expired"}
             }
-            // const data = await User.findOne({resetLink : resetLink}, (err, user)=>{
-            //     if(user){
-            //         user.password = newpassword;
-            //         user.token = ''
-            //         user.resetLink = ''
-            //         user.save()
-            //         console.log("Password Reset Successful .. Please <a href='/users/resetpassword/xkljsfkjbh'>log in</a> to continue")
-            //         return {type:"success",message:"Password Reset Successful .. Please <a href='/users/resetpassword/xkljsfkjbh'>log in</a> to continue"}
-            //     }
-            //     else{
-            //         console.log("Token expired")
-            //         return {type:"error",message:"User with this token does not exist or Token Expired"}
-            //     }
-            // })
-            // console.log(data)
         })
     }
 }
