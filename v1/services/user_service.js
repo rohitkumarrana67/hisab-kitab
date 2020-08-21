@@ -30,3 +30,7 @@ UserService.prototype.getAvatar = async function () {
     const dispatcher_data = await this.dispatcher.getAvatar();
     return this.builder.getAvatar(dispatcher_data);
 }
+
+UserService.prototype.deleteUser = async function () {
+    return await this.dispatcher.deleteUser();
+}

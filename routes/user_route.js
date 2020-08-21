@@ -27,6 +27,6 @@ router.patch("/", Auth, userController.update)
 //     }
 // })
 // router.get("/:userid",userController.readUser)
-// router.delete("/:userid",userController.deleteUser)
+router.delete("/:user_id", Auth, userController.deleteUser)
 
 module.exports = router;

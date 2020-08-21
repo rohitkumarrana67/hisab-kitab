@@ -1,4 +1,4 @@
-const { createValidator, loginValidator, updateValidator, updatePasswordValidator, getAvatarValidator } = require("../validators/user_validators");
+const { createValidator, loginValidator, updateValidator, updatePasswordValidator, getAvatarValidator, deleteRequestValidator } = require("../validators/user_validators");
 const errorBuilder = require("../entity_builders/error_builder");
 const Service = require("../services/user_service");
 const Builder = require("../entity_builders/user_builder");
@@ -76,8 +76,6 @@ module.exports = {
                 res.status(error.code).send(error.body)
             });
         });
-
-
     },
 
     update: async (req, res) => {
@@ -105,6 +103,24 @@ module.exports = {
                 res.status(error.code).send(error.body)
             });
         })
+    },
 
+    deleteUser: (req, res) => {
+        deleteRequestValidator(req.params)
+        .then( validated_data => {
+            const req_data = {
+                params : validated_data
+            };
+            const UserService = new Service(req_data, req.user);
+            return UserService.deleteUser();
+        })
+        .then( data => {
+            res.status(204).send();
+        })
+        .catch( error => {
+            errorBuilder(error).then( error => {
+                res.status(error.code).send(error.body);
+            });
+        });
     }
 }
