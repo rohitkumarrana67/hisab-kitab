@@ -1,14 +1,14 @@
 const User = require("../../db/models/users");
 const Customer = require("../../db/models/customer");
 const Transaction = require("../../db/models/transactions");
+const { recordNotFoundError, unprocessableEntityError } = require("../../core/utility_functions");
 var uuid = require('uuid-random');
 const bcrypt = require("bcryptjs");
-const { recordNotFoundError, unprocessableEntityError } = require("../../core/utility_functions");
-const { resetpasswordValidator } = require("../validators/user_validators");
 const mailgun = require("mailgun-js");
-const DOMAIN = 'sandbox8337c26992c74b3098210566b5652de9.mailgun.org';
-const mg = mailgun({apiKey: 'f8b1a1f0ec23444e4e319837cfbac86f-203ef6d0-9d5bfe09', domain: DOMAIN});
 const jwt = require('jsonwebtoken')
+const DOMAIN = process.env.MAIL_DOMAIN;
+const mg = mailgun({apiKey: process.env.MAIL_API_KEY, domain: DOMAIN});
+
 
 module.exports = UserDispatcher = function (req_data, user_info) {
     // console.log(req_data)
