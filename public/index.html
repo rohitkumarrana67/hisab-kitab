@@ -11,6 +11,8 @@
     <script src="https://kit.fontawesome.com/2f55da0773.js" crossorigin="anonymous"></script>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
+    <link rel="stylesheet" href="css/really-simple-jquery-dialog.css">
+
 </head>
 
 <body>
@@ -132,9 +134,9 @@
                     <div class="row">
                         <div class="col-12 col-md-3 ">
                             <% if(model.get('avatar')){%>
-                            <img src="http://localhost:3060/users/<%= model.get('user_id')%>/avatar" class="img-fluid rounded w-100" alt="">
+                            <img src="http://localhost:3060/users/<%= model.get('user_id')%>/avatar" class="img-fluid rounded" alt="">
                             <% }else{ %>
-                            <img src="img/profile.png" class="img-fluid rounded w-100" alt="">
+                            <img src="img/profile.png" class="img-fluid rounded " alt="">
                             <%}%>
                             <button class="btn btn-warning btn-block mt-4" id="update-avatar">Update</button>
                         </div>
@@ -164,6 +166,7 @@
                
             </div>
         </div>
+        <div id="delete-confirmation"></div>
     </script>
 
     <!--Initial profile Template-->
@@ -511,6 +514,7 @@
                 <div id="transactions"></div>
             </div>
         </div>   
+        <div id="delete-confirmation"></div>
     </script>
 
     <!-- Summary Customer Info Edit Template -->
@@ -598,7 +602,6 @@
             </div>
         </div>
     </script>
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -611,6 +614,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="js/lib/really-simple-jquery-dialog.js"></script>
     <script src="js/models/user.js"></script>
     <script src="js/models/customer.js"></script>
     <script src="js/models/transaction.js"></script>

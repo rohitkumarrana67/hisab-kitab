@@ -4,7 +4,7 @@ var ProfileView = Backbone.View.extend({
     template: _.template($('#profile-template').html()),
     events: {
         "click #edit-info": "editInfo",
-        "click #delete-user":"deleteUser",
+        "click #delete-user": "deleteUser",
         "click #cancel-edit": "cancelEdit",
         "click #update-info": "updateInfo",
         "click #update-password": "updatePassword",
@@ -15,18 +15,27 @@ var ProfileView = Backbone.View.extend({
         this.$el.find('#profile-info').html(edit_template({ model: this.model }))
     },
     deleteUser: function () {
-        this.model.fetch({
-            url: "http://localhost:3060/users/"+this.model.get('user_id'),
-            headers: { 'auth-token': localStorage.getItem('khata-token') },
-            type: 'DELETE',
-            success: function (response) {
-                localStorage.removeItem('khata-token');
-                window.location = "#login";
-            },
-            error: function (error, response){
-                console.log(response)
+        const self = this
+        $('#delete-confirmation').simpleConfirm({
+            message: "Are you sure?",
+            success: function () {
+
+                self.model.fetch({
+                    url: "http://localhost:3060/users/" + self.model.get('user_id'),
+                    headers: { 'auth-token': localStorage.getItem('khata-token') },
+                    type: 'DELETE',
+                    success: function (response) {
+                        localStorage.removeItem('khata-token');
+                        window.location = "#login";
+                    },
+                    error: function (error, response) {
+                        console.log(response)
+                    }
+                });
+
             }
-        });
+
+        })
     },
     cancelEdit: function () {
         var initial_template = _.template($('#initial-profile-template').html())
