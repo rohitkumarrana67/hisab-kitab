@@ -1,17 +1,17 @@
 const utility = require("../../core/utility_functions")
 
-module.exports = TransactionBuilder = function (req_data){
+module.exports = TransactionBuilder = function (req_data) {
     this.req_data = req_data
 }
 
-TransactionBuilder.prototype.buildTransactionList = function (entity){
+TransactionBuilder.prototype.buildTransactionList = function (entity) {
     const res_data = []
-    for(entry of entity){
+    for (entry of entity) {
         let entry_obj = {
-            transaction_id : entry.transaction_id,
-            message : entry.message
+            transaction_id: entry.transaction_id,
+            message: entry.message
         }
-        if(entry.transaction_type === "take"){
+        if (entry.transaction_type === "give") {
             entry_obj.amount = (-1 * entry.amount)
         } else {
             entry_obj.amount = entry.amount
@@ -21,16 +21,16 @@ TransactionBuilder.prototype.buildTransactionList = function (entity){
     return res_data
 }
 
-TransactionBuilder.prototype.buildCreateEntry = async function (entity){
+TransactionBuilder.prototype.buildCreateEntry = async function (entity) {
     const balance = await utility.getBalance(entity.user_id, entity.customer_id)
-    return {balance}
+    return { balance }
 }
 
-TransactionBuilder.prototype.buildBalance = function (balance) { 
-    return {balance}
+TransactionBuilder.prototype.buildBalance = function (balance) {
+    return { balance }
 }
 
-TransactionBuilder.prototype.buildDelete = async function (entity){
-    const {message, amount } = entity;
+TransactionBuilder.prototype.buildDelete = async function (entity) {
+    const { message, amount } = entity;
     return { message, amount };
 }

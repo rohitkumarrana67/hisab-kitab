@@ -1,5 +1,5 @@
 var TransactionView = Backbone.View.extend({
-    className : "transaction-box",
+    className: "transaction-box",
     model: TransactionModel,
     collection: customer_collection,
     template: _.template($('#transaction-template').html()),
@@ -8,22 +8,33 @@ var TransactionView = Backbone.View.extend({
     },
     events: {
         "click #edit": "editTransaction",
-        "click #delete":"deleteTransaction"
+        "click #delete": "deleteTransaction"
     },
-    deleteTransaction: async function(){
+    deleteTransaction: async function () {
         const id = this.model.get('transaction_id')
-        this.model.set({transaction_id : id})
-        //console.log(data)
-        var self = this;
-        this.model.save(null,{
-            url:"http://localhost:3060/users/customers/transactions/"+this.model.get('transaction_id'),
-            headers: { 'auth-token': localStorage.getItem('khata-token') },
-            success: async function (response) {
-                alert(`${response.get('message')}\nRs.${response.get('amount')}\nDeleted`)
-            },
-            error: function (error, response) {
-                console.log(response);
+        this.model.set({ transaction_id: id })
+
+        const self = this
+        $('#delete-confirmation').simpleConfirm({
+            message: "Are you sure?",
+            success: function () {
+
+
+                self.model.save(null, {
+                    url: "http://localhost:3060/users/customers/transactions/" + self.model.get('transaction_id'),
+                    headers: { 'auth-token': localStorage.getItem('khata-token') },
+                    success: async function (response) {
+                        console.log("hello")
+                    },
+                    error: function (error, response) {
+                        console.log(response);
+                    }
+                })
+
+                self.remove();
+
             }
+
         })
     },
     editTransaction: function () {
