@@ -1,10 +1,9 @@
 const User = require("../../db/models/users");
 const Customer = require("../../db/models/customer");
 const Transaction = require("../../db/models/transactions");
+const { recordNotFoundError, unprocessableEntityError } = require("../../core/utility_functions");
 var uuid = require('uuid-random');
 const bcrypt = require("bcryptjs");
-const { recordNotFoundError, unprocessableEntityError } = require("../../core/utility_functions");
-const { resetpasswordValidator } = require("../validators/user_validators");
 const mailgun = require("mailgun-js");
 const DOMAIN = process.env.DOMAIN
 const mg = mailgun({apiKey: process.env.apiKey , domain: DOMAIN});

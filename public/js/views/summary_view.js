@@ -45,18 +45,28 @@ var SummaryView = Backbone.View.extend({
         })
     },
     deleteCustomer: function () {
-        const customer_id = this.model.get('customer_id');
-        this.model.set({ id: customer_id });
-        this.model.destroy({
-            url: "http://localhost:3060/users/customers/" + customer_id,
-            headers: { 'auth-token': localStorage.getItem('khata-token') },
-            success: function (response) {
-                window.location = "#customers"
-            },
-            error: function (error, response) {
-                console.log(response);
+        const self = this
+        $('#delete-confirmation').simpleConfirm({
+            message: "Are you sure?",
+            success: function () {
+
+                const customer_id = self.model.get('customer_id');
+                self.model.set({ id: customer_id });
+                self.model.destroy({
+                    url: "http://localhost:3060/users/customers/" + customer_id,
+                    headers: { 'auth-token': localStorage.getItem('khata-token') },
+                    success: function (response) {
+                        window.location = "#customers"
+                    },
+                    error: function (error, response) {
+                        console.log(response);
+                    }
+                })
+
             }
-        })
+        }
+        )
+
     },
     render: async function (data) {
         // console.log(data)
