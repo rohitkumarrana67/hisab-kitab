@@ -1,6 +1,7 @@
 const requestValidator = require("../validators/transaction_validator")
 const TransactionService = require("../services/transaction_service")
 const errorBuilder = require("../entity_builders/error_builder")
+const { deleteRequestValidator } = require("../validators/transaction_validator")
 
 module.exports = {
 
@@ -71,6 +72,21 @@ module.exports = {
         })
         .catch( error => {
             errorBuilder(error).then( err => { res.status(err.code).send(err.body) })
+        })
+    },
+
+    deleteTransaction : (req,res) => {
+        // console.log(req.params)
+        requestValidator.deleteRequestValidator(req.params)
+        .then(validated_data => {
+            const data = validated_data[0];
+            const transaction_service = new TransactionService(data)
+            return transaction_service.deleteTransaction()
+        }).then(data => {
+            // console.log(data)
+            res.status(200).send(data)
+        }).catch(error => {
+            errorBuilder(error).then( err => { res.status(err.code).send(err.body)})
         })
     }
 }

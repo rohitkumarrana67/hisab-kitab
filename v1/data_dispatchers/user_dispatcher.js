@@ -5,10 +5,9 @@ const { recordNotFoundError, unprocessableEntityError } = require("../../core/ut
 var uuid = require('uuid-random');
 const bcrypt = require("bcryptjs");
 const mailgun = require("mailgun-js");
+const DOMAIN = process.env.DOMAIN
+const mg = mailgun({apiKey: process.env.apiKey , domain: DOMAIN});
 const jwt = require('jsonwebtoken')
-const DOMAIN = process.env.MAIL_DOMAIN;
-const mg = mailgun({apiKey: process.env.MAIL_API_KEY, domain: DOMAIN});
-
 
 module.exports = UserDispatcher = function (req_data, user_info) {
     // console.log(req_data)
@@ -26,6 +25,7 @@ UserDispatcher.prototype.create = async function (req_data) {
 
 UserDispatcher.prototype.login = async function (req_data) {
     const user = await User.findByCredentials(req_data.email, req_data.password);
+    user.resetLink = ''
     const token = await user.generateAuthToken();
     return { user, token };
 }
@@ -77,13 +77,13 @@ UserDispatcher.prototype.forgotpassword = async function() {
     }
     else{
             const user_id = user.user_id
-            const token = jwt.sign({user_id },'Resetpassword',{ expiresIn : '120m'});
+            const token = jwt.sign({user_id },process.env.JWT_RESET,{ expiresIn : '120m'});
             // console.log(token)
             await user.updateOne({resetLink: token})
             const data = {
                 from: 'noreply@hisabkitab.com',
                 to: 'anuragsri453@gmail.com',
-                subject: 'Account Activation Link',
+                subject: 'Reset Password Link',
                 html: `
                     <h2>Click on the link to reset your password</h2>
                     <a href=http://localhost:3060/users/resetpassword/${token}>ResetLink</a>
@@ -93,6 +93,7 @@ UserDispatcher.prototype.forgotpassword = async function() {
                 console.log("Mail sent")
                 return { type:'success', message:"An email with a link to reset your password has been sent to your email id." }
             }).catch((error)=>{
+                console.log(error)
                 return { type:'error', message:"Unable to send email"}
             })
         }
@@ -103,7 +104,7 @@ UserDispatcher.prototype.resetpassword = async function() {
     const resetLink = this.req_data.resetLink
     const newpassword = this.req_data.newpassword
     if(resetLink){
-        return jwt.verify(resetLink, 'Resetpassword', async function(error, response){
+        return jwt.verify(resetLink, process.env.JWT_RESET , async function(error, response){
             if(error){
                 console.log("Invalid token or token expired")
                 return 

@@ -7,5 +7,7 @@ router.get("/users/customer/:id/transactions", Auth, TransactionController.index
 router.post("/users/customer/:id/:type", Auth, TransactionController.createEntry)
 router.get("/users/customer/balance/:id", Auth, TransactionController.getBalance)
 router.patch("/users/customers/transactions/:transaction_id", Auth, TransactionController.updateTransaction)
+//router.delete("/users/customers/transactions/:transaction_id", Auth, TransactionController.deleteTransaction )
+router.post("/users/customers/transactions/:transaction_id", Auth, TransactionController.deleteTransaction )
 
 module.exports = router

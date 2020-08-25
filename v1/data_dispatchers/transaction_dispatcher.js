@@ -35,3 +35,8 @@ TransactionDispatcher.prototype.updateTransaction = async function () {
     const res_data = await transactionModel.findOneAndUpdate(filter_obj, update_obj, {new:true})
     return res_data.amount
 }
+
+TransactionDispatcher.prototype.deleteTransaction = async function () {
+   const transaction = await transactionModel.findOneAndDelete(this.req_data)
+   return transaction;
+}
