@@ -153,7 +153,7 @@ module.exports = {
                 res.send(data.message+"<a href='http://localhost:3060'>     Log in</a> to continue")
             }
             else{
-                res.send(data.message)
+                res.send(data.message || data.messages)
             }
         }).catch( error => {
             errorBuilder(error).then( error => {

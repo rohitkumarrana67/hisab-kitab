@@ -29,3 +29,8 @@ TransactionBuilder.prototype.buildCreateEntry = async function (entity){
 TransactionBuilder.prototype.buildBalance = function (balance) { 
     return {balance}
 }
+
+TransactionBuilder.prototype.buildDelete = async function (entity){
+    const {message, amount } = entity;
+    return { message, amount };
+}

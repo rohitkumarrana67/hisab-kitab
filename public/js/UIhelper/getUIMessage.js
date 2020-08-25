@@ -36,10 +36,10 @@ const getUIMessage = function(messages){
     else if(messages == "'email' is not allowed to be empty"){
         return {messages:"Email cannot be blank"}
     }
-    else if(messages.includes("E11000 duplicate key error collection: khata_book.customers index: email_1 dup key")){
+    else if(messages.includes("E11000 duplicate key error collection: ")){
         return {messages:"Email ID already in use"}
     }
-    else if(messages.includes("Cast to Number failed for value")){
+    else if(messages.includes("Cast to Number failed for value") || messages == "'mobile_number' must be a number"){
         return {messages:"Mobile number is not valid"}
     }
     else if(messages == "'email' is not allowed to be empty"){

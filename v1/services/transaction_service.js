@@ -26,3 +26,8 @@ TransactionService.prototype.updateTransaction = async function () {
     const dispatcher_data = await this.disaptcher.updateTransaction()
     return this.entity_builder.buildBalance(dispatcher_data)
 }
+
+TransactionService.prototype.deleteTransaction = async function () {
+    const dispatcher_data = await this.disaptcher.deleteTransaction()
+    return this.entity_builder.buildDelete(dispatcher_data);
+}

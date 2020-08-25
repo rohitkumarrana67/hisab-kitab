@@ -38,7 +38,7 @@ var SummaryView = Backbone.View.extend({
             },
             error: function (err, response) {
                 console.log(response.responseJSON)
-                var err = self.getUIMessage(response.responseJSON.messages)
+                var err = getUIMessage(response.responseJSON.messages)
                 var view = new ErrorView({ model: err })
                 self.$el.find("#updateinfo").html(view.render().$el)
             }
@@ -59,6 +59,7 @@ var SummaryView = Backbone.View.extend({
         })
     },
     render: async function (data) {
+        // console.log(data)
         var self = this
         await data.fetch({
             url: "http://localhost:3060/users/customers/" + data.get('customer_id'),

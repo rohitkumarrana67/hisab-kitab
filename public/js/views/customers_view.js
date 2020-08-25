@@ -4,8 +4,13 @@ var CustomersView = Backbone.View.extend({
     template: _.template($('#main-customers-template').html()),
     events: {
         'click #create': 'createCustomer',
+        'click #create-customer' : 'closemodal'
+    },
+    closemodal : function(){
+        $("#create-customer-error").html("")
     },
     createCustomer: function (e) {
+        $("#create-customer-error").html("")
         e.preventDefault()
         var customer_name = $('#name').val();
         var email = $('#email').val();
@@ -20,7 +25,9 @@ var CustomersView = Backbone.View.extend({
                 self.render();
             },
             error: function (error, response) {
-                console.log(response);
+                var error = getUIMessage( response.responseJSON.messages)
+                var view = new ErrorView({model: error })
+                self.$el.find("#create-customer-error").html(view.render().$el)
             }
         })
     },

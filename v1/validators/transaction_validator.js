@@ -49,9 +49,20 @@ const updateRequestValidator = async function (params, body) {
     ])
 }
 
+const deleteRequestValidator = async function (req_data) {
+    const req_data_schema = Joi.object({
+        transaction_id : Joi.number().integer().required()
+    })
+
+    return await Promise.all([
+        req_data_schema.validateAsync(req_data, {convert:true})
+    ])
+}
+
 module.exports = {
     indexRequestValidator,
     createEntryValidator,
     balanceRequestValidator,
-    updateRequestValidator
+    updateRequestValidator,
+    deleteRequestValidator
 }
