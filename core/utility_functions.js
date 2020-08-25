@@ -23,10 +23,10 @@ exports.getBalance = async function (user_id, customer_id) {
     var balance = 0
     for (let entry of transactions) {
         if (entry.transaction_type === "take") {
-            balance += (-1 * entry.amount)
+            balance += entry.amount
         }
         else if (entry.transaction_type === "give") {
-            balance += entry.amount
+            balance += (-1 * entry.amount)
         }
     }
     return balance

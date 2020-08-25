@@ -111,8 +111,8 @@
         </div>
         <div class="container mb-5">
             <div class="row">
-                <div class="col-6 customer-banner"> <img src="./img/customers.png" class="img-fluid" alt=""></div>
-                <div class="col-6 d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-6 customer-banner"> <img src="./img/customers.png" class="img-fluid" alt=""></div>
+                <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
                     <div>
                         <h1>Easy to manage customers</h1>
                         <ul>
@@ -123,6 +123,23 @@
                 </div>
             </div>
         </div>
+
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+                    <div>
+                        <h1>Easy to manage transactions</h1>
+                        <ul>
+                            <li>Get detail of every transaction</li>
+                            <li>Edit any transaction at any time</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 customer-banner"> <img src="./img/transactions.png" class="img-fluid" alt=""></div>
+            </div>
+        </div>
+
+        
     </script>
 
     <!-- Profile View Template -->
@@ -449,7 +466,15 @@
     <script type="text/template" id="customer-template">
         <td><%= model.get('customer_name') %></td>
         <td><%= model.get('mobile_number') %></td>
-        <td><%= model.get('balance') %></td>
+        <td>
+            <% if(model.get('balance') < 0){ %>
+            <%= model.get('balance') %> <i class="fas fa-arrow-up text-danger"></i>
+            <% }else if(model.get('balance') > 0){%>
+            <%= model.get('balance') %> <i class="fas fa-arrow-down text-success"><i>  
+            <%}else{%>
+            <%= model.get('balance')%>
+            <%}%>      
+        </td>
         <td>
             <button type="button" class="btn btn-danger" id="give">Give</button>
             <button type="button" class="btn btn-success" id="take">Take</button>
@@ -581,7 +606,11 @@
         <div class="card mb-3">
             <div class="row no-gutters ">
                 <div class="col-md-2">
+                    <% if (model.get('amount') >= 0){ %>
                     <img src="img/take.png" class="card-img" alt="...">
+                    <%}else{%>
+                    <img src="img/give.png" class="card-img" alt="..."> 
+                    <%}%>  
                 </div>
                     <div class="col-md-10">
                         <div class="card-body">
